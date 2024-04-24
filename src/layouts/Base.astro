@@ -4,6 +4,17 @@ import Layout from "./Layout.astro";
 const { title } = Astro.props;
 ---
 
+<script>
+  // Toggle mobile menu
+  document
+    .querySelectorAll(".hamburger")
+    .forEach((button) =>
+      button.addEventListener("click", () => {
+        document.querySelector(".mobile-menu").classList.toggle("hidden");
+      })
+    );
+</script>
+
 <Layout title={title}>
   <header class="bg-slate-900">
     <nav
@@ -23,7 +34,7 @@ const { title } = Astro.props;
       <div class="flex lg:hidden">
         <button
           type="button"
-          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-300"
+          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-300 hamburger"
         >
           <span class="sr-only">Open main menu</span>
           <svg
@@ -55,9 +66,9 @@ const { title } = Astro.props;
       </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
-    <div class="lg:hidden" role="dialog" aria-modal="true">
+    <div class="lg:hidden mobile-menu hidden" role="dialog" aria-modal="true">
       <!-- Background backdrop, show/hide based on slide-over state. -->
-      <div class="fixed inset-0 z-50"></div>
+      <div class="fixed inset-0 z-50 hidden"></div>
       <div
         class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10"
       >
@@ -70,7 +81,7 @@ const { title } = Astro.props;
               alt=""
             />
           </a>
-          <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-300">
+          <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-300 hamburger">
             <span class="sr-only">Close menu</span>
             <svg
               class="h-6 w-6"
@@ -92,17 +103,17 @@ const { title } = Astro.props;
             <div class="space-y-2 py-6">
               <a
                 href="/projects"
-                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-200 hover:bg-gray-50"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800"
                 >Projects</a
               >
               <a
                 href="#"
-                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800"
                 >About Me</a
               >
               <a
                 href="#"
-                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800"
                 >Contact</a
               >
             </div>
