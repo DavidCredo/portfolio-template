@@ -13,21 +13,25 @@ const availableTags: { name: string; color: Color }[] = [
 const projects = [
   {
     title: "Project 1",
+    slug: "project-1",
     description: "This is a description of project 1",
     tags: ["Mixed Reality", "Web Development"],
   },
   {
     title: "Project 2",
+    slug: "project-2",
     description: "This is a description of project 2",
     tags: ["Mixed Reality", "Interaction Design"],
   },
   {
     title: "Project 3",
+    slug: "project-3",
     description: "This is a description of project 3",
     tags: ["Web Development"],
   },
   {
     title: "Project 4",
+    slug: "project-4",
     description: "This is a description of project 4",
     tags: ["Mixed Reality"],
   },
@@ -49,20 +53,24 @@ const projects = [
         {
           projects.map((project) => (
             <GlassCard>
-              <img
-                src="/public/images/metaquest.jpg"
-                alt="Project Image"
-                class="object-cover rounded-lg mb-4"
-              />
-              <div class="flex flex-wrap gap-2 mt-4">
-                {project.tags.map((tag) => {
-                  const tagData = availableTags.find((t) => t.name === tag);
-                  if (!tagData) return null;
-                  return <Pill color={tagData.color} description={tag} />;
-                })}
-              </div>
-              <h2 class="text-2xl mt-4 mb-1 text-gray-100">{project.title}</h2>
-              <p class="text-gray-300">{project.description}</p>
+              <a href={`/projects/${project.slug}`} class="block">
+                <img
+                  src="/public/images/metaquest.jpg"
+                  alt="Project Image"
+                  class="object-cover rounded-lg mb-4"
+                />
+                <div class="flex flex-wrap gap-2 mt-4">
+                  {project.tags.map((tag) => {
+                    const tagData = availableTags.find((t) => t.name === tag);
+                    if (!tagData) return null;
+                    return <Pill color={tagData.color} description={tag} />;
+                  })}
+                </div>
+                <h2 class="text-2xl mt-4 mb-1 text-gray-100">
+                  {project.title}
+                </h2>
+                <p class="text-gray-300">{project.description}</p>
+              </a>
             </GlassCard>
           ))
         }

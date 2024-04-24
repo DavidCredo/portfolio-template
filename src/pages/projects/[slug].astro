@@ -1,0 +1,36 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const projects = [
+  {
+    title: "Project 1",
+    slug: "project-1",
+  },
+  {
+    title: "Project 2",
+    slug: "project-2",
+  },
+  {
+    title: "Project 3",
+    slug: "project-3",
+  },
+  {
+    title: "Project 4",
+    slug: "project-4",
+  },
+];
+
+const { slug } = Astro.params;
+const project = projects.find((project) => project.slug === slug);
+if (!project) {
+  return Astro.redirect("/404");
+}
+const { title } = project;
+---
+
+<Base title={title}>
+  <main class="container mx-auto p-4">
+    <h1 class="text-4xl text-gray-100 w-max">{title}</h1>
+    <p class="text-lg text-gray-300">This is a project page.</p>
+  </main>
+</Base>
