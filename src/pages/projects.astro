@@ -1,75 +1,46 @@
 ---
 import GlassCard from "../components/GlassCard.svelte";
 import Pill from "../components/Pill.svelte";
-import { Color } from "../../constants";
+import { availableTags } from "../../constants";
 import Base from "../layouts/Base.astro";
+import { getCollection } from "astro:content";
 
-const availableTags: { name: string; color: Color }[] = [
-  { name: "Mixed Reality", color: Color.Emerald },
-  { name: "Web Development", color: Color.Blue },
-  { name: "Interaction Design", color: Color.Violet },
-];
+const projects = await getCollection("projects");
 
-const projects = [
-  {
-    title: "Project 1",
-    slug: "project-1",
-    description: "This is a description of project 1",
-    tags: ["Mixed Reality", "Web Development"],
-  },
-  {
-    title: "Project 2",
-    slug: "project-2",
-    description: "This is a description of project 2",
-    tags: ["Mixed Reality", "Interaction Design"],
-  },
-  {
-    title: "Project 3",
-    slug: "project-3",
-    description: "This is a description of project 3",
-    tags: ["Web Development"],
-  },
-  {
-    title: "Project 4",
-    slug: "project-4",
-    description: "This is a description of project 4",
-    tags: ["Mixed Reality"],
-  },
-];
 ---
 
 <Base title="Projects I've worked on">
   <div>
     <header class="text-start py-12 px-5">
-      <h1 class="text-4xl text-gray-100">Projects</h1>
-      <p class="text-gray-300 text-lg">
-        Here are some of the projects I've worked on.
+      <h1 class="text-4xl text-gray-100">Projekte</h1>
+      <p class="text-gray-300 text-lg pt-4">
+        Eine Auswahl an Projekten, an denen ich gearbeitet habe.
       </p>
     </header>
     <main class="mx-auto flex justify-center">
       <div
-        class="grid gap-x-6 gap-y-12 mt-6 mx-6 md:mx-12 md:grid-cols-2 lg:grid-cols-4"
+        class="grid gap-x-6 gap-y-12 mt-6 mx-6 md:mx-12 md:grid-cols-2 lg:grid-cols-3 "
       >
         {
           projects.map((project) => (
-            <GlassCard>
-              <a href={`/projects/${project.slug}`} class="block">
+            <GlassCard classes="hover:bg-white/20 transition-all duration-300 ease-in-out hover:scale-105 hover:z-50 hover:shadow-2xl active:scale-90 active:shadow-xl">
+              <a href={`/projects/${project.id}`} class="block">
                 <img
-                  src="/public/images/metaquest.jpg"
-                  alt="Project Image"
+                  src={project.data.thumbnail.src}
+                  alt={project.data.thumbnail.alt}
                   class="object-cover rounded-lg mb-4"
                 />
-                <div class="flex flex-wrap gap-2 mt-4">
-                  {project.tags.map((tag) => {
+                <div class="flex flex-wrap gap-2 mt-4 min-w-56">
+                  {project.data.tags.map((tag) => {
                     const tagData = availableTags.find((t) => t.name === tag);
                     if (!tagData) return null;
                     return <Pill color={tagData.color} description={tag} />;
                   })}
                 </div>
                 <h2 class="text-2xl mt-4 mb-1 text-gray-100">
-                  {project.title}
+                  {project.data.title}
                 </h2>
-                <p class="text-gray-300">{project.description}</p>
+                <p class="text-gray-300">{project.data.shortDescription}</p>
               </a>
             </GlassCard>
           ))
