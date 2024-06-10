@@ -50,12 +50,12 @@
 </script>
 
 <span
-  class="text-xs font-medium me-2 px-2.5 py-0.5 rounded-full {getColorProps(
+  class="flex-grow text-center text-sm font-medium px-2.5 py-0.5 rounded-full {getColorProps(
     color
-  ).bgColor} {getColorProps(color).textColor}"
+  ).bgColor} {getColorProps(color).textColor}" 
 >
   {#if Icon}
-    <span class="me-1">{Icon}</span>
+    <span class="">{Icon}</span>
   {/if}
   {description}</span
 >
