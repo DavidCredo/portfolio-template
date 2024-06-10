@@ -1,36 +1,96 @@
 ---
+import Pill from "../../components/Pill.svelte";
 import Base from "../../layouts/Base.astro";
-
-const projects = [
-  {
-    title: "Project 1",
-    slug: "project-1",
-  },
-  {
-    title: "Project 2",
-    slug: "project-2",
-  },
-  {
-    title: "Project 3",
-    slug: "project-3",
-  },
-  {
-    title: "Project 4",
-    slug: "project-4",
-  },
-];
-
+import { availableTags } from "../../../constants";
+import GithubIcon from "../../../public/github-mark.svelte";
+import { getEntry } from "astro:content";
+import ProjectImage from "../../components/ProjectImage.svelte";
+import IconButton from "../../components/IconButton.svelte";
 const { slug } = Astro.params;
-const project = projects.find((project) => project.slug === slug);
+
+const project = await getEntry("projects", slug!);
+
 if (!project) {
   return Astro.redirect("/404");
 }
-const { title } = project;
+
+const { title, tags, longDescription, content, url } = project.data;
 ---
 
 <Base title={title}>
-  <main class="container mx-auto p-4">
-    <h1 class="text-4xl text-gray-100 w-max">{title}</h1>
-    <p class="text-lg text-gray-300">This is a project page.</p>
-  </main>
+  <div
+    class="container flex flex-col items-center mx-auto md:place-content-center lg:grid-cols-2 lg:mx-auto p-8"
+  >
+    <section class="mt-8 mb-8 flex">
+      <div class="hidden 2xl:grid 2xl:grid-cols-3 2xl:gap-8 2xl:mr-16">
+        {
+          content?.map((content, index) =>
+            content.graphics?.map((graphic) => (
+              <ProjectImage
+                src={graphic.src}
+                alt={graphic.alt}
+                classes={`hidden 2xl:block 2xl:col-span-2 ${index % 2 === 0 ? "2xl:col-start-1" : "2xl:col-start-2"}`}
+              />
+            ))
+          )
+        }
+      </div>
+
+      <article class="max-w-2xl">
+        <section class="pb-8">
+          <h1 class="text-6xl text-gray-100 text-center mb-8">{title}</h1>
+          <div class="md:flex md:items-start md:gap-8">
+            <p
+              class="text-lg text-gray-300 md:flex-1 me-8"
+              set:html={longDescription}
+            />
+            <article class="md:max-w-96 md:flex-1">
+              <h2 class="text-2xl text-gray-100 mt-8 md:mt-0">Skills</h2>
+              <div class="flex flex-wrap gap-2 mt-4">
+                {
+                  tags &&
+                    tags.map((tag) => {
+                      const tagData = availableTags.find((t) => t.name === tag);
+                      if (!tagData) return null;
+                      return <Pill color={tagData.color} description={tag} />;
+                    })
+                }
+              </div>
+            </article>
+          </div>
+        </section>
+
+        {
+          content?.map((content) => (
+            <section class="pb-16 2xl:pb-4">
+              <h2 class="text-3xl text-gray-100 mb-4">
+                <a
+                  href={"#" + content.title}
+                  id={content.title}
+                  class="text-gray-100"
+                >
+                  {content.title}
+                </a>
+              </h2>
+              <p class="text-lg text-gray-300 col-span-2 lg:col-span-full lg:col-start-4 md:col-end-7">
+                {content.body}
+              </p>
+              <div class="grid grid-cols-2 gap-8 mt-8">
+                {content.graphics?.map((graphic) => (
+                  <ProjectImage
+                    src={graphic.src}
+                    alt={graphic.alt}
+                    classes="col-span-3 col-start-1 col-end-3 block 2xl:hidden"
+                  />
+                ))}
+              </div>
+            </section>
+          ))
+        }
+        <IconButton href={url} target="_blank" label="Zum Github Repository">
+          <GithubIcon />
+        </IconButton>
+      </article>
+    </section>
+  </div>
 </Base>
