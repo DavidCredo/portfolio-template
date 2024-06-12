@@ -1,0 +1,10 @@
+{
+    "fullName": "John Doe",
+    "street": "Musterstraße",
+    "houseNumber": "42",
+    "zip": "12345",
+    "city": "Musterstadt",
+    "country": "Deutschland",
+    "phone": "0123456789",
+    "email": "john.doe@mail.com"
+}
