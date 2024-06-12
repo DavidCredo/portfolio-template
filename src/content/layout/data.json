@@ -1,0 +1,10 @@
+{
+    "head": {
+        "title": "My Portfolio",
+        "description": "This is my Portfolio's description",
+        "favicon": "/global/favicon.svg"
+    },
+    "header": {
+        "logo": "/global/logo.svg"
+    }
+}

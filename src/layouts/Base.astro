@@ -1,7 +1,9 @@
 ---
 import Layout from "./Layout.astro";
 import Footer from "./Footer.astro";
+import { getEntry } from "astro:content";
 
+const layout = await getEntry("layout", "data");
 const { title, headerText, mailadress } = Astro.props;
 ---
 
@@ -28,8 +30,7 @@ const { title, headerText, mailadress } = Astro.props;
       <div class="flex lg:flex-1">
         <a href="/" class="-m-1.5 p-1.5">
           <span class="sr-only">{headerText}</span>
-          <!-- TODO: Add actual logo -->
-          <img class="h-8 w-auto" src="/logo.svg" alt="" />
+          <img class="h-8 w-auto" src={layout.data.header.logo} alt="" />
         </a>
       </div>
       <div class="flex lg:hidden">
@@ -78,8 +79,7 @@ const { title, headerText, mailadress } = Astro.props;
         <div class="flex items-center justify-between">
           <a href="/" class="-m-1.5 p-1.5">
             <span class="sr-only">{headerText}</span>
-            <!-- TODO: Add actual logo -->
-            <img class="h-8 w-auto" src="/logo.svg" alt="" />
+            <img class="h-8 w-auto" src={layout.data.header.logo} alt="" />
           </a>
           <button
             type="button"
