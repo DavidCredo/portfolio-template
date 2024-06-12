@@ -4,7 +4,7 @@ import Footer from "./Footer.astro";
 import { getEntry } from "astro:content";
 
 const layout = await getEntry("layout", "data");
-const { title, headerText, mailadress } = Astro.props;
+const { title, headerText } = Astro.props;
 ---
 
 <script>
@@ -60,11 +60,11 @@ const { title, headerText, mailadress } = Astro.props;
           class="text-sm font-semibold leading-6 text-gray-100">Projects</a
         >
         <a
-          href="../pages/aboutMe"
+          href="/aboutMe"
           class="text-sm font-semibold leading-6 text-gray-100">Über mich</a
         >
         <a
-          href=`mailto:${mailadress}`
+          href=`mailto:${layout.data.head.mailadress}`
           class="text-sm font-semibold leading-6 text-gray-100">Kontakt</a
         >
       </div>
@@ -110,12 +110,12 @@ const { title, headerText, mailadress } = Astro.props;
                 >Projekte</a
               >
               <a
-                href="../pages/aboutMe"
+                href="/aboutMe"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800"
                 >Über mich</a
               >
               <a
-                href=`mailto:${mailadress}`
+                href=`mailto:${layout.data.head.mailadress}`
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800"
                 >Kontakt</a
               >

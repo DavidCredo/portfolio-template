@@ -7,6 +7,7 @@ export const layout = defineCollection({
             title: z.string(),
             description: z.string(),
             favicon: z.string(),
+            mailadress: z.string(),
         }),
         header: z.object({
             logo: z.string(),

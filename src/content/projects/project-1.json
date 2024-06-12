@@ -3,7 +3,7 @@
     "longDescription": "This is a project description.<br/> It can be as long as you want it to be. It can contain multiple paragraphs and even lists. It can contain links to other pages or websites. It can contain images and videos. It can contain anything you want.",
     "shortDescription": "Very short description, capturing the essence of the project in a few words.",
     "thumbnail": {
-    "src": "/images/stockfoto1.jpg",
+    "src": "/siteAssets/stockfoto1.jpg",
     "alt": "Stock photo 1"
     },
     "tags": [
@@ -29,7 +29,7 @@
         "body": "This is a section body. It can be as long as you want it to be. It can contain multiple paragraphs and even lists. It can contain links to other pages or websites. It can contain images and videos. It can contain anything you want.",
         "graphics": [
           {
-            "src": "/images/stockfoto1.jpg",
+            "src": "/siteAssets/stockfoto1.jpg",
             "alt": "Stock photo 1"
           }
         ]
@@ -39,7 +39,7 @@
         "body": "This is a section body. It can be as long as you want it to be. It can contain multiple paragraphs and even lists. It can contain links to other pages or websites. It can contain images and videos. It can contain anything you want.",
         "graphics": [
           {
-            "src": "/images/stockfoto2.jpg",
+            "src": "/siteAssets/stockfoto2.jpg",
             "alt": "Stock photo 2"
           }        ]
       },
@@ -48,7 +48,7 @@
         "body": "This is a section body. It can be as long as you want it to be. It can contain multiple paragraphs and even lists. It can contain links to other pages or websites. It can contain images and videos. It can contain anything you want.",
         "graphics": [
           {
-            "src": "/images/stockfoto3.jpg",
+            "src": "/siteAssets/stockfoto3.jpg",
             "alt": "Stock photo 3"
           }
 
