@@ -2,23 +2,23 @@
 import Base from "../layouts/Base.astro";
 import { getEntry } from "astro:content";
 
-const imprint = await getEntry("imprint", "data");
+const personal = await getEntry("personal", "data");
 ---
 
 <Base title="Impressum">
-    <div>
+    <div class="container mx-auto my-12 p-4">
         <h1>Impressum</h1>
         <h2>Diensteanbieter</h2>
-        <p>{imprint.data.fullName}</p>
-        <p>{imprint.data.street} {imprint.data.houseNumber}</p>
-        <p>{imprint.data.zip} {imprint.data.city}</p>
-        <p>{imprint.data.country}</p>
+        <p>{personal.data.fullName}</p>
+        <p>{personal.data.street} {personal.data.houseNumber}</p>
+        <p>{personal.data.zip} {personal.data.city}</p>
+        <p>{personal.data.country}</p>
 
-        <h2>Kontaktmöglichkeiten</h2><p>E-Mail-Adresse: {imprint.data.email}</p>
-        {imprint.data.phone && <p>Telefon: {imprint.data.phone}</p>}
+        <h2>Kontaktmöglichkeiten</h2><p>E-Mail-Adresse: {personal.data.email}</p>
+        {personal.data.phone && <p>Telefon: {personal.data.phone}</p>}
 
         <h2>Journalistisch-redaktionelle Angebote</h2><p>
-            Inhaltlich verantwortlich: {imprint.data.fullName}
+            Inhaltlich verantwortlich: {personal.data.fullName}
         </p>
 
         <h2>Audiovisuelle Mediendienste</h2><p>Sitzland: Deutschland.</p>
@@ -28,12 +28,6 @@ const imprint = await getEntry("imprint", "data");
                 href="https://www.ma-hsh.de/"
                 target="_blank">https://www.ma-hsh.de/</a>
         </p>
-
-        <h2>Social Media und andere Onlinepräsenzen</h2><p>
-            Dieses Impressum gilt auch für die folgenden Social-Media-Präsenzen
-            und Onlineprofile:
-        </p>
-        <p>social media handles</p>
 
         <h2>Vorbehalt der Nutzung für Text und Data Mining</h2><p>
             Vorbehalt der Nutzung für Text und Data Mining: Der Inhaber dieser

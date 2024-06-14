@@ -1,6 +1,6 @@
 import { defineCollection, z } from "astro:content";
 
-export const imprint = defineCollection({
+export const personal = defineCollection({
     type: "data",
     schema: z.object({
         fullName: z.string(),
@@ -12,5 +12,7 @@ export const imprint = defineCollection({
         country: z.string(),
         phone: z.string().optional(),
         email: z.string(),
+        linkedIn: z.string(),
+        github: z.string(),
     }),
 }); 

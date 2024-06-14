@@ -6,5 +6,7 @@
     "city": "Musterstadt",
     "country": "Deutschland",
     "phone": "0123456789",
-    "email": "john.doe@mail.com"
+    "email": "john.doe@mail.com",
+    "linkedIn": "https://linkedin.com/in/johndoe",
+    "github": "https://github.com/johndoe"
 }
