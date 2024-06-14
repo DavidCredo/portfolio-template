@@ -2,9 +2,9 @@
 import Pill from "../../components/Pill.svelte";
 import Base from "../../layouts/Base.astro";
 import { availableTags } from "../../../constants";
-import GithubIcon from "../../components/github-mark.svelte";
+import GithubIcon from "../../components/Icons/GithubIcon.svelte";
 import { getEntry } from "astro:content";
-import ProjectImage from "../../components/ProjectImage.svelte";
+import ProjectImage from "../../components/Projects/ProjectImage.svelte";
 import IconButton from "../../components/IconButton.svelte";
 const { slug } = Astro.params;
 
@@ -21,7 +21,8 @@ const { title, tags, longDescription, content, url } = project.data;
   <div
     class="container flex flex-col items-center mx-auto md:place-content-center lg:grid-cols-2 lg:mx-auto p-8"
   >
-    <section class="mt-8 mb-8 flex">
+  <h1 class="text-6xl text-gray-100 text-center mb-4">{title}</h1>
+  <section class="mt-8 mb-8 flex">
       <div class="hidden 2xl:grid 2xl:grid-cols-3 2xl:gap-8 2xl:mr-16">
         {
           content?.map((content, index) =>
@@ -38,7 +39,6 @@ const { title, tags, longDescription, content, url } = project.data;
 
       <article class="max-w-2xl">
         <section class="pb-8">
-          <h1 class="text-6xl text-gray-100 text-center mb-8">{title}</h1>
           <div class="md:flex md:items-start md:gap-8">
             <p
               class="text-lg text-gray-300 md:flex-1 me-8"

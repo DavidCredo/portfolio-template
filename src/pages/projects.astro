@@ -1,50 +1,28 @@
 ---
-import GlassCard from "../components/GlassCard.svelte";
-import Pill from "../components/Pill.svelte";
-import { availableTags } from "../../constants";
 import Base from "../layouts/Base.astro";
 import { getCollection } from "astro:content";
+import ProjectFilter from "../components/Projects/ProjectFilter.svelte";
+import ProjectGallery from "../components/Projects/ProjectGallery.svelte";
 
 const projects = await getCollection("projects");
-
 ---
 
 <Base title="Projects I've worked on">
   <div>
     <header class="text-start py-12 px-5">
-      <h1 class="text-4xl text-gray-100">Projekte</h1>
+      <h1 class="text-4xl text-gray-100 bg">Projekte</h1>
       <p class="text-gray-300 text-lg pt-4">
         Eine Auswahl an Projekten, an denen ich gearbeitet habe.
       </p>
     </header>
     <main class="mx-auto flex justify-center">
       <div
-        class="grid gap-x-6 gap-y-12 mt-6 mx-6 md:mx-12 md:grid-cols-2 lg:grid-cols-3 "
+        class="grid gap-x-6 gap-y-12 mt-6 mx-6 md:mx-12 md:grid-cols-2 lg:grid-cols-3"
       >
-        {
-          projects.map((project) => (
-            <GlassCard classes="hover:bg-white/20 transition-all duration-300 ease-in-out hover:scale-105 hover:z-50 hover:shadow-2xl active:scale-90 active:shadow-xl">
-              <a href={`/projects/${project.id}`} class="block">
-                <img
-                  src={project.data.thumbnail.src}
-                  alt={project.data.thumbnail.alt}
-                  class="object-cover rounded-lg mb-4"
-                />
-                <div class="flex flex-wrap gap-2 mt-4 min-w-56">
-                  {project.data.tags.map((tag) => {
-                    const tagData = availableTags.find((t) => t.name === tag);
-                    if (!tagData) return null;
-                    return <Pill color={tagData.color} description={tag} />;
-                  })}
-                </div>
-                <h2 class="text-2xl mt-4 mb-1 text-gray-100">
-                  {project.data.title}
-                </h2>
-                <p class="text-gray-300">{project.data.shortDescription}</p>
-              </a>
-            </GlassCard>
-          ))
-        }
+        <div class="col-span-full inline-flex justify-between w-full">
+          <ProjectFilter client:only="svelte" />
+        </div>
+        <ProjectGallery projects={projects} client:only="svelte" />
       </div>
     </main>
   </div>

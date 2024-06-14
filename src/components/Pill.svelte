@@ -1,8 +1,10 @@
 <script lang="ts">
-  import type { Color } from "../../constants";
-  export let color: Color;
+  import { Color } from "../../constants";
+
+  export let color: Color | undefined;
   export let description: string = "";
   export let Icon: any = null;
+
   function getColorProps(color: Color) {
     switch (color) {
       case "blue":
@@ -15,31 +17,57 @@
           bgColor: "bg-green-100",
           textColor: "text-green-800",
         };
-      case "amber":
+      case Color.Amber:
         return {
           bgColor: "bg-amber-100",
           textColor: "text-amber-800",
         };
-      case "yellow":
+      case Color.Yellow:
         return {
           bgColor: "bg-yellow-100",
           textColor: "text-yellow-800",
         };
-      case "emerald":
+      case Color.Emerald:
         return {
           bgColor: "bg-emerald-100",
           textColor: "text-emerald-800",
         };
-      case "orange":
+      case Color.Orange:
         return {
           bgColor: "bg-orange-100",
           textColor: "text-orange-800",
         };
-      case "violet":
+      case Color.Violet:
         return {
           bgColor: "bg-violet-100",
           textColor: "text-violet-800",
         };
+      case Color.Cyan:
+        return {
+          bgColor: "bg-cyan-100",
+          textColor: "text-cyan-800",
+        };
+      case Color.Rose:
+        return {
+          bgColor: "bg-rose-100",
+          textColor: "text-rose-800",
+        };
+      case Color.Purple:
+        return {
+          bgColor: "bg-purple-100",
+          textColor: "text-purple-800",
+        };
+      case Color.Red:
+        return {
+          bgColor: "bg-red-100",
+          textColor: "text-red-800",
+        };
+      case Color.Pink:
+        return {
+          bgColor: "bg-pink-100",
+          textColor: "text-pink-800",
+        };
+
       default:
         return {
           bgColor: "bg-gray-100",
@@ -50,12 +78,13 @@
 </script>
 
 <span
-  class="flex-grow text-center text-sm font-medium px-2.5 py-0.5 rounded-full {getColorProps(
+  class="inline-flex justify-center items-center flex-grow text-center text-sm font-medium px-2.5 py-0.5 rounded-full {getColorProps(
     color
-  ).bgColor} {getColorProps(color).textColor}" 
+  ).bgColor} {getColorProps(color).textColor}"
 >
   {#if Icon}
     <span class="">{Icon}</span>
   {/if}
-  {description}</span
->
+  {description}
+  <slot name="postfixIcon"></slot>
+</span>
