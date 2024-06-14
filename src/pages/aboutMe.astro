@@ -1,4 +1,7 @@
 ---
+import EmployeeCard from "../components/EmployeeCard.svelte";
+import TagGrid from "../components/TagGrid.svelte";
+import Timeline from "../components/Timeline/Timeline.svelte";
 import Base from "../layouts/Base.astro";
 import { getEntry } from "astro:content";
 
@@ -6,5 +9,29 @@ const about = await getEntry("about", "data");
 ---
 
 <Base title="">
-
+  <section
+  class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 mt-8 gap-12 lg:gap-32"
+  >
+    <article class="flex items-center justify-center">
+      <EmployeeCard portraitSrc={about.data.image} client:only="svelte" />
+    </article>
+    <article class="lg:col-start-2 w-full">
+      <div class="flex flex-col xl:flex-row items-center mb-4">
+        <p class="text-md text-gray-300 0 mb-8 lg:mb-0">
+          {about.data.introduction}
+        </p>
+        <div class="flex flex-col mb-8 lg:mb-0 xl:ml-8 justify-start h-full">
+          <h2 class="text-xl text-gray-100 mb-4 lg:mt-4">My skills are:</h2>
+          <div class="min-w-72"><TagGrid /></div>
+        </div>
+      </div>
+      <div class="mb-8">
+        <p class="text-md text-gray-300">{about.data.elaboration}</p>
+      </div>
+      <Timeline
+        timeLineEntries={about.data.timeLineData}
+        client:only="svelte"
+      />
+    </article>
+  </section>
 </Base>
