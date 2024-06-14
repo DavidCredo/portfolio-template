@@ -42,7 +42,7 @@ const personal = await getEntry("personal", "data");
             {personal.data.city}<br />{personal.data.country}
         </p>
         <p>
-            E-Mail-Adresse: <a href="mailto:{imprint.data.email}"
+            E-Mail-Adresse: <a href=`mailto:${personal.data.email}`
                 >{personal.data.email}</a
             >
         </p>

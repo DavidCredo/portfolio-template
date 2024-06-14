@@ -14,7 +14,10 @@ const personal = await getEntry("personal", "data");
         <p>{personal.data.zip} {personal.data.city}</p>
         <p>{personal.data.country}</p>
 
-        <h2>Kontaktmöglichkeiten</h2><p>E-Mail-Adresse: {personal.data.email}</p>
+        <h2>Kontaktmöglichkeiten</h2><p>
+            E-Mail-Adresse: <a href=`mailto:${personal.data.email}`
+                >{personal.data.email}</a>
+        </p>
         {personal.data.phone && <p>Telefon: {personal.data.phone}</p>}
 
         <h2>Journalistisch-redaktionelle Angebote</h2><p>
@@ -26,7 +29,8 @@ const personal = await getEntry("personal", "data");
             Zuständige Regulierungs-, bzw. Aufsichtsbehörde: Medienanstalt
             Hamburg / Schleswig-Holstein (MA HSH), <a
                 href="https://www.ma-hsh.de/"
-                target="_blank">https://www.ma-hsh.de/</a>
+                target="_blank">https://www.ma-hsh.de/</a
+            >
         </p>
 
         <h2>Vorbehalt der Nutzung für Text und Data Mining</h2><p>
