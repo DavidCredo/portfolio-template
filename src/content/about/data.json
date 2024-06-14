@@ -2,5 +2,55 @@
     "introduction": "I am a software engineer with a passion for creating and building things. I have a strong background in web development and have worked on a variety of projects ranging from small personal websites to large enterprise applications. I am always looking for new challenges and opportunities to learn and grow as a developer.",
     "elaboration": "I have experience working with a wide range of technologies including JavaScript, React, Node.js, and MongoDB. I am comfortable working on both the front-end and back-end of web applications and have a strong understanding of web development best practices. I am a quick learner and am always looking for ways to improve my skills and expand my knowledge.",
     "image": "/siteAssets/portrait.jpg",
-    "imageAlt": "A picture of me"
+    "imageAlt": "A picture of me",
+    "timeLineData": [
+        {
+            "title": "Software Engineer",
+            "location": "Company A",
+            "dateStart": "2020-09-01",
+            "description": "Worked on a team of developers to build and maintain a large web application.",
+            "type": "Work"
+        },
+        {
+            "title": "Web Developer",
+            "location": "Company B",
+            "dateStart": "2018-09-01",
+            "dateEnd": "2020-09-01",
+            "description": "Developed and maintained websites for a variety of clients.",
+            "type" : "Volunteer"
+        },
+        {
+            "title": "Junior Developer",
+            "location": "Company C",
+            "dateStart": "2017-09-01",
+            "dateEnd": "2018-09-01",
+            "description": "Assisted senior developers with building and maintaining web applications.",
+            "type": "Education"
+        },
+        {
+            "title": "Web Development Intern",
+            "location": "Company D",
+            "dateStart": "2016-09-01",
+            "dateEnd": "2017-09-01",
+            "description": "Worked on a team of developers to build and maintain a large web application.",
+            "type": "Work"
+        },
+        {
+            "title": "Software Engineer",
+            "location": "Company E",
+            "dateStart": "2015-09-01",
+            "dateEnd": "2016-09-01",
+            "description": "Developed and maintained websites for a variety of clients.",
+            "type" : "Volunteer"
+        },
+        {
+            "title": "Junior Developer",
+            "location": "Company F",
+            "dateStart": "2014-09-01",
+            "dateEnd": "2015-09-01",
+            "description": "Assisted senior developers with building and maintaining web applications.",
+            "type": "Education"
+        }
+        
+    ]
 }

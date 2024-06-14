@@ -1,0 +1,49 @@
+<script lang="ts">
+  import TimelineEntry from "./TimelineEntry.svelte";
+  import { type TimelineData, IconType } from "../../types";
+  import {
+    BadgeCheckSolid,
+    AwardSolid,
+    HeartSolid,
+    LandmarkSolid,
+    BriefcaseSolid,
+  } from "flowbite-svelte-icons";
+  export let timeLineEntries: TimelineData[];
+
+  function makeIcon(type: IconType) {
+    switch (type) {
+      case IconType.Work:
+        return BriefcaseSolid;
+      case IconType.Education:
+        return LandmarkSolid;
+      case IconType.Certification:
+        return AwardSolid;
+      case IconType.Volunteer:
+        return HeartSolid;
+      case IconType.Other:
+        return BadgeCheckSolid;
+      default:
+        return;
+    }
+  }
+</script>
+
+<ul role="list" class="w-full">
+  {#each timeLineEntries as entry, index}
+    <TimelineEntry
+      title={entry.title}
+      location={entry.location}
+      description={entry.description}
+      dateStart={entry.dateStart}
+      dateEnd={entry.dateEnd}
+      isLast={index === timeLineEntries.length - 1}
+    >
+      <span slot="icon">
+        {@const icon = makeIcon(entry.type)}
+        {#if icon}
+          <svelte:component this={icon} class="w-4 h-4 text-white" />
+        {/if}
+      </span>
+    </TimelineEntry>
+  {/each}
+</ul>
