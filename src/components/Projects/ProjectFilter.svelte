@@ -14,11 +14,10 @@
     selected: $selectedTagsStore,
   });
 
-  function handleSelect(event) {
+  function handleSelect(event: CustomEvent<{ selected: string[] }>) {
     const selectedTags = event.detail.selected;
     selectedTagsStore.set(selectedTags);
   }
-  $: console.log($selectedTagsStore);
 </script>
 
 <div class="flex flex-wrap gap-2 me-8">
@@ -26,11 +25,11 @@
     {@const tagData = availableTags.find((t) => t.name === tag)}
     <div transition:fade use:listBox.deselect={tag} class="cursor-pointer">
       {#if tagData}
-      <Pill color={tagData.color} description={tagData.name}>
-        <div slot="postfixIcon">
-          <CloseIcon />
-        </div>
-      </Pill>
+        <Pill color={tagData.color} description={tagData.name}>
+          <div slot="postfixIcon">
+            <CloseIcon color={tagData.color} />
+          </div>
+        </Pill>
       {/if}
     </div>
   {/each}
@@ -46,12 +45,12 @@
   {#if $listBox.expanded}
     <ul
       use:listBox.items
-      class="absolute right-0 max-w-56 z-10 mt-12 w-full bg-white/10 border border-white/20 backdrop-filter backdrop-blur-md rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm overflow-auto max-h-56"
+      class="absolute right-0 max-w-56 z-10 mt-12 w-full bg-white/10 border border-white/20 backdrop-filter backdrop-blur-md rounded-md shadow-lg ring-1 ring-black ring-opacity-5 list-none focus:outline-none sm:text-sm overflow-auto max-h-56"
     >
       {#each availableTags as tag, id}
         <li
           use:listBox.item={{ value: tag.name }}
-          class="text-gray-100 text-center cursor-pointer select-none relative py-2 px-4 hover:bg-white/20"
+          class="text-gray-100 text-center cursor-pointer select-none relative py-2 px-4 hover:bg-white/20 my-0"
         >
           <span class="block">{tag.name}</span>
         </li>
