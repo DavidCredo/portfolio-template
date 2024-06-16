@@ -47,3 +47,9 @@
     </TimelineEntry>
   {/each}
 </ul>
+
+<style>
+  ul {
+    list-style-type: none;
+  }
+</style>
