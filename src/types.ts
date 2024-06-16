@@ -1,5 +1,4 @@
 export interface TimelineData {
-    id: number;
     title: string;
     location: string;
     description: string;

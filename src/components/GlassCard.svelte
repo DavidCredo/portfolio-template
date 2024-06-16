@@ -1,6 +1,5 @@
 <script lang="ts">
   export let classes = "";
-  export let onPointerMove = (e) => {};
 </script>
 
 <div

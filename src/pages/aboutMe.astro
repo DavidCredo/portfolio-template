@@ -4,6 +4,7 @@ import TagGrid from "../components/TagGrid.svelte";
 import Timeline from "../components/Timeline/Timeline.svelte";
 import Base from "../layouts/Base.astro";
 import { getEntry } from "astro:content";
+import type { TimelineData } from "../types";
 
 const about = await getEntry("about", "data");
 ---
@@ -26,12 +27,13 @@ const about = await getEntry("about", "data");
         </div>
       </div>
       <div class="mb-8">
-        <p class="text-md text-gray-300">{about.data.elaboration}</p>
+        <p class="text-md text-gray-300 py-2">{about.data.elaboration}</p>
       </div>
       <Timeline
-        timeLineEntries={about.data.timeLineData}
+        timeLineEntries={about.data.timeLineData as TimelineData[]}
         client:only="svelte"
       />
     </article>
   </section>
 </Base>
+
