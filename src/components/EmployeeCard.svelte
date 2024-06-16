@@ -3,7 +3,7 @@
   export let portraitSrc;
 </script>
 
-<GlassCard classes="max-w-xl 2xl:max-w-lg lg:-mt-16 lg:sticky lg:left-0 top-12">
+<GlassCard classes="max-w-xl 2xl:max-w-lg">
   <div
     class="w-1/5 h-8 bg-gray-800 rounded-2xl shadow-inner shadow-slate-400 mx-auto mb-4"
   ></div>
