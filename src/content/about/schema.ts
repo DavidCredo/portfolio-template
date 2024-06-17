@@ -4,6 +4,8 @@ import { IconType } from "../../types";
 export const about = defineCollection({
     type: "data",
     schema: z.object({
+        name: z.string(),
+        role: z.string(),
         introduction: z.string(),
         elaboration: z.string(),
         image: z.string(),

@@ -11,10 +11,14 @@ const about = await getEntry("about", "data");
 
 <Base title="">
   <section
-  class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 mt-8 gap-12 lg:gap-32"
+    class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 mt-8 gap-12 lg:gap-32"
   >
     <article class="flex items-center justify-center">
-      <EmployeeCard portraitSrc={about.data.image} client:only="svelte" />
+      <EmployeeCard
+        portraitSrc={about.data.image}
+        name={about.data.name}
+        role={about.data.role}
+      />
     </article>
     <article class="lg:col-start-2 w-full">
       <div class="flex flex-col xl:flex-row items-center mb-4">
@@ -36,4 +40,3 @@ const about = await getEntry("about", "data");
     </article>
   </section>
 </Base>
-
