@@ -48,9 +48,12 @@
       class="absolute right-0 max-w-56 z-10 mt-12 w-full bg-white/10 border border-white/20 backdrop-filter backdrop-blur-md rounded-md shadow-lg ring-1 ring-black ring-opacity-5 list-none focus:outline-none sm:text-sm overflow-auto max-h-56"
     >
       {#each availableTags as tag, id}
+        {@const active = $listBox.selected.includes(tag.name)}
         <li
           use:listBox.item={{ value: tag.name }}
-          class="text-gray-100 text-center cursor-pointer select-none relative py-2 px-4 hover:bg-white/20 my-0"
+          class="text-gray-100 text-center cursor-pointer select-none relative py-2 px-4 hover:bg-white/20 my-0 {active
+            ? 'font-bold'
+            : ''}"
         >
           <span class="block">{tag.name}</span>
         </li>
