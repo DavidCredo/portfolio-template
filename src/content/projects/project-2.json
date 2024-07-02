@@ -15,7 +15,7 @@
     "Backend Development"
   ],
   "url": "https://github.com",
-  "teamSize": 5,
+  "team": "John Doe, Jane Doe",
   "subtitle": "This is a project subtitle",
   "techStack" : [
     "HTML",
