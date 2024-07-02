@@ -37,7 +37,7 @@
 <div class=" relative inline-flex max-h-10 {classes}">
   <button
     use:listBox.button
-    class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-white/10 border border-transparent rounded-md shadow-sm hover:bg-white/20 focus:outline-none backdrop-filter backdrop-blur-md"
+    class="inline-flex justify-center w-full px-6 py-2 text-sm font-medium text-white bg-white/10 border border-transparent rounded-md shadow-sm hover:bg-white/20 focus:outline-none backdrop-filter backdrop-blur-md"
     on:select={handleSelect}
   >
     <span class="text-nowrap text-white">Nach Tags filtern</span>
@@ -45,13 +45,13 @@
   {#if $listBox.expanded}
     <ul
       use:listBox.items
-      class="absolute right-0 max-w-56 z-10 mt-12 w-full bg-white/10 border border-white/20 backdrop-filter backdrop-blur-md rounded-md shadow-lg ring-1 ring-black ring-opacity-5 list-none focus:outline-none sm:text-sm overflow-auto max-h-56"
+      class="absolute right-0 max-w-60 z-10 mt-12 w-full bg-slate-900/50 border border-white/20 backdrop-filter backdrop-blur-md rounded-md shadow-lg ring-1 ring-black ring-opacity-5 list-none focus:outline-none max-h-56 overflow-y-auto overflow-x-hidden "
     >
       {#each availableTags as tag, id}
         {@const active = $listBox.selected.includes(tag.name)}
         <li
           use:listBox.item={{ value: tag.name }}
-          class="text-gray-100 text-center cursor-pointer select-none relative py-2 px-4 hover:bg-white/20 my-0 {active
+          class="block w-full text-gray-100 text-center cursor-pointer select-none relative py-2 px-4 hover:bg-white/20 my-0 {active
             ? 'font-bold'
             : ''}"
         >

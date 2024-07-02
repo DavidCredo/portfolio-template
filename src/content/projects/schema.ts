@@ -7,7 +7,7 @@ export const projects = defineCollection({
         subtitle: z.string(),
         techStack: z.array(z.string()),
         projectDuration: z.string(),
-        teamSize: z.number(),
+        team: z.string(),
         longDescription: z.string(),
         shortDescription: z.string(),
         tags: z.array(z.string()),
@@ -15,15 +15,14 @@ export const projects = defineCollection({
             src: z.string(),
             alt: z.string(),
         }),
-        url: z.string(),
+        url: z.string().optional(),
         content: z.array(z.object({
-            title: z.string(),
-            body: z.string(),
+            title: z.string().optional(),
+            body: z.string().optional(),
             graphics: z.array(z.object({
                 src: z.string(),
                 alt: z.string(),
             })).optional(),
-
         })).optional(),
 
     }),

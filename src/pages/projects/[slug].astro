@@ -19,78 +19,95 @@ const { title, tags, longDescription, content, url } = project.data;
 
 <Base title={title}>
   <div
-    class="container flex flex-col items-center mx-auto md:place-content-center lg:grid-cols-2 lg:mx-auto p-8"
+    class="container flex flex-col items-center mx-auto md:place-content-center 2xl:grid 2xl:grid-cols-2 p-8 2xl:row-auto"
   >
-  <h1 class="text-6xl text-gray-100 text-center mb-4">{title}</h1>
-  <section class="mt-8 mb-8 flex">
-      <div class="hidden 2xl:grid 2xl:grid-cols-3 2xl:gap-8 2xl:mr-16">
-        {
-          content?.map((content, index) =>
-            content.graphics?.map((graphic) => (
-              <ProjectImage
-                src={graphic.src}
-                alt={graphic.alt}
-                classes={`hidden 2xl:block 2xl:col-span-2 ${index % 2 === 0 ? "2xl:col-start-1" : "2xl:col-start-2"}`}
-              />
-            ))
-          )
-        }
-      </div>
-
-      <article class="max-w-2xl">
-        <section class="pb-8">
-          <div class="md:flex md:items-start md:gap-8">
-            <p
-              class="text-lg text-gray-300 md:flex-1 me-8"
-              set:html={longDescription}
+    <h1 class="text-6xl w-full text-gray-100 mb-4 lg:col-span-1 text-center">
+      {title}
+    </h1>
+    <div
+      class="hidden 2xl:grid 2xl:grid-cols-3 2xl:gap-8 2xl:mr-16 lg:col-span-1 lg:row-start-2"
+    >
+      {
+        content?.map((content, index) =>
+          content.graphics?.map((graphic) => (
+            <ProjectImage
+              src={graphic.src}
+              alt={graphic.alt}
+              classes={`hidden 2xl:block 2xl:col-span-2 ${index % 2 === 0 ? "2xl:col-start-1" : "2xl:col-start-2"}`}
             />
-            <article class="md:max-w-96 md:flex-1">
-              <h2 class="text-2xl text-gray-100 mt-8 md:mt-0">Skills</h2>
-              <div class="flex flex-wrap gap-2 mt-4">
-                {
-                  tags &&
-                    tags.map((tag) => {
-                      const tagData = availableTags.find((t) => t.name === tag);
-                      if (!tagData) return null;
-                      return <Pill color={tagData.color} description={tag} />;
-                    })
-                }
-              </div>
-            </article>
-          </div>
-        </section>
-
-        {
-          content?.map((content) => (
-            <section class="pb-16 2xl:pb-4">
-              <h2 class="text-3xl text-gray-100 mb-4">
-                <a
-                  href={"#" + content.title}
-                  id={content.title}
-                  class="text-gray-100"
-                >
-                  {content.title}
-                </a>
-              </h2>
-              <p class="text-lg text-gray-300 col-span-2 lg:col-span-full lg:col-start-4 md:col-end-7">
-                {content.body}
-              </p>
-              <div class="grid grid-cols-2 gap-8 mt-8">
-                {content.graphics?.map((graphic) => (
-                  <ProjectImage
-                    src={graphic.src}
-                    alt={graphic.alt}
-                    classes="col-span-3 col-start-1 col-end-3 block 2xl:hidden"
-                  />
-                ))}
-              </div>
-            </section>
           ))
-        }
-        <IconButton href={url} target="_blank" label="Zum Github Repository">
-          <GithubIcon />
-        </IconButton>
-      </article>
-    </section>
+        )
+      }
+    </div>
+
+    <article class="self-start row-span-full col-start-2 mb-8 w-full">
+      <div class="md:flex md:items-start md:gap-8">
+        <div>
+          <h2>Kapazität</h2>
+          <span>{project.data.projectDuration}</span>
+          <h2>Team</h2>
+          <span>{project.data.team}</span>
+        </div>
+        <article class="md:max-w-96">
+          <h2 class="text-2xl text-gray-100 mt-8 md:mt-0">Fähigkeiten</h2>
+          <div class="flex flex-wrap gap-2 mt-4">
+            {
+              tags &&
+                tags.map((tag) => {
+                  const tagData = availableTags.find((t) => t.name === tag);
+                  if (!tagData) return null;
+                  return <Pill color={tagData.color} description={tag} />;
+                })
+            }
+          </div>
+        </article>
+      </div>
+    </article>
+    <div class="row-start-2 self-start">
+      <p
+        class="text-lg text-gray-300 md:block me-8"
+        set:html={longDescription}
+      />
+      {
+        content?.map((content) => (
+          <>
+            <>
+              {content.title && content.body && (
+                <section class="pb-16 2xl:pb-4">
+                  <h2 class="text-3xl text-gray-100 mb-4">
+                    <a
+                      href={"#" + content.title}
+                      id={content.title}
+                      class="text-gray-100"
+                    >
+                      {content.title}
+                    </a>
+                  </h2>
+                  <p class="text-lg text-gray-300 col-span-2 lg:col-span-full lg:col-start-4 md:col-end-7">
+                    {content.body}
+                  </p>
+                </section>
+              )}
+            </>
+            <div class="grid grid-cols-2 gap-8 mt-8 2xl:hidden">
+              {content.graphics?.map((graphic) => (
+                <ProjectImage
+                  src={graphic.src}
+                  alt={graphic.alt}
+                  classes="col-span-3 col-start-1 col-end-3 block 2xl:hidden"
+                />
+              ))}
+            </div>
+          </>
+        ))
+      }
+      {
+        url && (
+          <IconButton href={url} target="_blank" label="Zum Github Repository">
+            <GithubIcon />
+          </IconButton>
+        )
+      }
+    </div>
   </div>
 </Base>
