@@ -11,7 +11,7 @@
   ></div>
   <img src={portraitSrc} alt="A portrait of me" class="rounded-lg" />
   <div class="flex flex-col gap-2">
-    <h2 class="text-3xl xl:text-4xl font-bold text-white mt-8">{name}</h2>
+    <h2 class="text-3xl xl:text-4xl font-bold text-gray-200 mt-8">{name}</h2>
     <p class="text-gray-200 2xl:text-lg">{role}</p>
   </div>
 </GlassCard>
@@ -55,7 +55,7 @@
   <foreignObject x="10%" y="10%" width="80%" height="100%">
     <img src={portraitSrc} alt="A portrait of me" class="rounded-lg" />
     <div class="flex flex-col gap-2">
-      <h2 class="text-3xl xl:text-4xl font-bold text-white mt-8">{name}</h2>
+      <h2 class="text-3xl xl:text-4xl font-bold text-gray-200 mt-8">{name}</h2>
       <p class="text-gray-200 2xl:text-lg">{role}</p>
     </div>
   </foreignObject>

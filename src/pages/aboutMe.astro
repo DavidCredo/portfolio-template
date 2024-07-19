@@ -9,7 +9,7 @@ import type { TimelineData } from "../types";
 const about = await getEntry("about", "data");
 ---
 
-<Base title="Über mich">
+<Base title={about.data.name}>
   <!-- TODO: Add h1-title like at project gallery -->
   <section
     class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 mt-8 gap-12 lg:gap-32"

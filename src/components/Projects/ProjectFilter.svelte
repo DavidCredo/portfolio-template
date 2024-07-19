@@ -37,10 +37,10 @@
 <div class=" relative inline-flex max-h-10 {classes}">
   <button
     use:listBox.button
-    class="inline-flex justify-center w-full px-6 py-2 text-sm font-medium text-white bg-white/10 border border-transparent rounded-md shadow-sm hover:bg-white/20 focus:outline-none backdrop-filter backdrop-blur-md"
+    class="inline-flex justify-center w-full px-6 py-2 text-sm font-medium text-gray-200 bg-white/10 border border-transparent rounded-md shadow-sm hover:bg-white/20 focus:outline-none backdrop-filter backdrop-blur-md"
     on:select={handleSelect}
   >
-    <span class="text-nowrap text-white">Nach Tags filtern</span>
+    <span class="text-nowrap text-gray-200">Nach Tags filtern</span>
   </button>
   {#if $listBox.expanded}
   <!-- TODO: blend scrollbar more into the applied colorscheme -->

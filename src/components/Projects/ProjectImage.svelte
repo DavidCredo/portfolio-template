@@ -8,5 +8,5 @@
 
 <GlassCard {classes}>
   <img {src} {alt} class="rounded-md shadow-xl" />
-  <p class="text-center text-white text-opacity-80 pt-6 italic">{alt}</p>
+  <p class="text-center text-gray-200 text-opacity-80 pt-6 italic">{alt}</p>
 </GlassCard>
