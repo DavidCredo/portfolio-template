@@ -23,7 +23,7 @@ const { title, headerText } = Astro.props;
 
 <Layout title={title}>
   <!-- TODO: Header auslagern, Navigation weniger doppeln -->
-  <header class="bg-slate-900">
+  <header>
     <nav
       class="flex items-center justify-between p-6 lg:px-8"
       aria-label="Global"
@@ -168,12 +168,12 @@ const { title, headerText } = Astro.props;
   p {
     @apply my-4;
   }
-  a {
+  /* a {
   }
   ul {
     @apply list-disc list-inside;
   }
   li {
     @apply my-2;
-  }
+  } */
 </style>
