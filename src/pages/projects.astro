@@ -7,18 +7,19 @@ import ProjectGallery from "../components/Projects/ProjectGallery.svelte";
 const projects = await getCollection("projects");
 ---
 
-<Base title="Projects I've worked on">
+<Base title="Ein Auszug meiner Projekte">
   <div>
-    <header class="text-start py-12 px-5">
-      <h1 class="text-4xl text-gray-100 bg">Projekte</h1>
-      <p class="text-gray-300 text-lg pt-4">
-        Eine Auswahl an Projekten, an denen ich gearbeitet habe.
-      </p>
-    </header>
-    <main class="mx-auto flex justify-center">
+    <!-- TODO: inplement smart min-width so that it doesn't collaps when a filter doesn't results in a project -->
+    <main class="mx-auto flex justify-center min-w-full">
       <div
         class="grid gap-x-6 gap-y-12 mt-6 mx-6 md:mx-12 md:grid-cols-2 lg:grid-cols-3"
       >
+        <div class="col-span-full w-full">
+          <h1 class="text-4xl text-gray-100 bg">Projekte</h1>
+          <p class="text-gray-300 text-lg">
+            Eine Auswahl an Projekten, an denen ich gearbeitet habe.
+          </p>
+        </div>
         <div class="col-span-full inline-flex justify-between w-full">
           <ProjectFilter client:only="svelte" />
         </div>
