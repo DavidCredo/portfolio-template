@@ -24,16 +24,16 @@ const about = await getEntry("about", "data");
     <article class="lg:col-start-2 w-full">
       <div class="flex flex-col xl:flex-row items-center mb-4">
         <!-- TODO: Add h2-title -->
-        <p class="text-md text-gray-200 0 mb-8 lg:mb-0">
+        <p class="text-md text-gray-100 0 mb-8 lg:mb-0">
           {about.data.introduction}
         </p>
         <div class="flex flex-col mb-8 lg:mb-0 xl:ml-8 justify-start h-full">
-          <h2 class="text-xl text-gray-200 mb-4 lg:mt-4">Meine Stärken:</h2>
+          <h2 class="text-xl text-gray-100 mb-4 lg:mt-4">Meine Stärken:</h2>
           <div class="min-w-72"><TagGrid /></div>
         </div>
       </div>
       <div class="mb-8">
-        <p class="text-md text-gray-200 py-2">{about.data.elaboration}</p>
+        <p class="text-md text-gray-100 py-2">{about.data.elaboration}</p>
       </div>
       <!-- TODO: Add h2-title -->
       <Timeline

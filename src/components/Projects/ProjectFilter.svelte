@@ -37,10 +37,10 @@
 <div class=" relative inline-flex max-h-10 {classes}">
   <button
     use:listBox.button
-    class="inline-flex justify-center w-full px-6 py-2 text-sm font-medium text-gray-200 bg-white/10 border border-transparent rounded-md shadow-sm hover:bg-white/20 focus:outline-none backdrop-filter backdrop-blur-md"
+    class="inline-flex justify-center w-full px-6 py-2 text-sm font-medium text-gray-100 bg-white/10 border border-transparent rounded-md shadow-sm hover:bg-white/20 focus:outline-none backdrop-filter backdrop-blur-md"
     on:select={handleSelect}
   >
-    <span class="text-nowrap text-gray-200">Nach Tags filtern</span>
+    <span class="text-nowrap text-gray-100">Nach Tags filtern</span>
   </button>
   {#if $listBox.expanded}
   <!-- TODO: blend scrollbar more into the applied colorscheme -->
@@ -52,7 +52,7 @@
         {@const active = $listBox.selected.includes(tag.name)}
         <li
           use:listBox.item={{ value: tag.name }}
-          class="block w-full text-gray-200 text-center cursor-pointer select-none relative py-2 px-4 hover:bg-white/20 my-0 {active
+          class="block w-full text-gray-100 text-center cursor-pointer select-none relative py-2 px-4 hover:bg-white/20 my-0 {active
             ? 'font-bold'
             : ''}"
         >

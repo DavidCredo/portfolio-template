@@ -41,7 +41,7 @@
       <span slot="icon">
         {@const icon = makeIcon(entry.type)}
         {#if icon}
-          <svelte:component this={icon} class="w-4 h-4 text-gray-200" />
+          <svelte:component this={icon} class="w-4 h-4 text-gray-100" />
         {/if}
       </span>
     </TimelineEntry>
