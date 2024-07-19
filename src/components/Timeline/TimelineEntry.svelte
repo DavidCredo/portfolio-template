@@ -28,21 +28,21 @@
             <!-- TODO: Add URL to collection, if applies -->
             <a href="/" class="font-medium text-gray-100">@ {location}</a>
           </p>
-          <p class="text-sm text-gray-100">{description}</p>
+          <p class="text-sm text-gray-300">{description}</p>
         </div>
         <div class="flex flex-col justify-end ml-4 items-end">
           {#if dateStart}
             <time
-              class="text-sm text-gray-100"
+              class="text-sm text-gray-300"
               datetime={dateStart.toISOString()}
             >
               {dateStart.getFullYear()}
             </time>
           {/if}
-          <span class="block text-sm text-gray-100 text-center">bis</span>
+          <span class="block text-sm text-gray-300 text-center">bis</span>
           {#if dateEnd}
             <time
-              class="text-sm text-gray-100"
+              class="text-sm text-gray-300"
               datetime={dateEnd.toISOString()}
             >
               {dateEnd.getFullYear()}

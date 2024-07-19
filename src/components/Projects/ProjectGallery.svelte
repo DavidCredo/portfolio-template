@@ -35,7 +35,7 @@
         <h2 class="text-2xl mt-4 mb-1 text-gray-100">
           {project.data.title}
         </h2>
-        <p class="text-gray-100">{project.data.shortDescription}</p>
+        <p class="text-gray-300">{project.data.shortDescription}</p>
       </a>
     </GlassCard>
   </div>
