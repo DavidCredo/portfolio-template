@@ -30,7 +30,7 @@
           </p>
           <p class="text-sm text-gray-300">{description}</p>
         </div>
-        <div class="flex flex-col justify-end ml-4 items-end">
+        <div class="flex flex-col justify-center ml-4 items-center">
           {#if dateStart}
             <time
               class="text-sm text-gray-300"
