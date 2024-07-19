@@ -48,7 +48,7 @@
               {dateEnd.getFullYear()}
             </time>
           {:else}
-            <time class="text-sm text-gray-100">Heute</time>
+            <time class="text-sm text-gray-300">heute</time>
           {/if}
         </div>
       </div>
