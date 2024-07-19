@@ -23,6 +23,7 @@ const { title, headerText } = Astro.props;
 
 <Layout title={title}>
   <!-- TODO: Header auslagern, Navigation weniger doppeln -->
+  <!-- TODO: IMPORTANT SIMPLE UX MEASURE: show where you are at the navigation -->
   <header>
     <nav
       class="flex items-center justify-between p-6 lg:px-8"
@@ -37,7 +38,7 @@ const { title, headerText } = Astro.props;
       <div class="flex lg:hidden">
         <button
           type="button"
-          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-300 hamburger"
+          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200 hamburger"
         >
           <span class="sr-only">Hauptmenü öffnen</span>
           <svg
@@ -58,14 +59,18 @@ const { title, headerText } = Astro.props;
       <div class="hidden lg:flex lg:gap-x-12">
         <a
           href="/projects"
-          class="text-sm lg:text-base font-semibold leading-6 text-gray-100">Portfolio</a
+          class="text-sm lg:text-base font-semibold leading-6 text-gray-200"
+          >Portfolio</a
         >
-        <a href="/aboutMe" class="text-sm lg:text-base font-semibold leading-6 text-gray-100"
+        <a
+          href="/aboutMe"
+          class="text-sm lg:text-base font-semibold leading-6 text-gray-200"
           >Über mich</a
         >
         <a
           href=`mailto:${layout.data.head.mailadress}`
-          class="text-sm lg:text-base font-semibold leading-6 text-gray-100">Schreib mir!</a
+          class="text-sm lg:text-base font-semibold leading-6 text-gray-200"
+          >Schreib mir!</a
         >
       </div>
     </nav>
@@ -83,7 +88,7 @@ const { title, headerText } = Astro.props;
           </a>
           <button
             type="button"
-            class="-m-2.5 rounded-md p-2.5 text-gray-300 hamburger"
+            class="-m-2.5 rounded-md p-2.5 text-gray-200 hamburger"
           >
             <span class="sr-only">Menü schließen</span>
             <svg
@@ -106,17 +111,17 @@ const { title, headerText } = Astro.props;
             <div class="space-y-2 py-6">
               <a
                 href="/projects"
-                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-200 hover:bg-gray-800"
                 >Portfolio</a
               >
               <a
                 href="/aboutMe"
-                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-200 hover:bg-gray-800"
                 >Über mich</a
               >
               <a
                 href=`mailto:${layout.data.head.mailadress}`
-                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-200 hover:bg-gray-800"
                 >Schreib mir!</a
               >
             </div>

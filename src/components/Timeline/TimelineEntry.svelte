@@ -23,32 +23,32 @@
       </span>
       <div class="mt-1 ml-4 flex flex-row justify-between gap-2 w-full">
         <div class="flex flex-col">
-          <p class="text-sm text-gray-200 title">
+          <p class="font-medium text-gray-200 title">
             {title}
             <!-- TODO: Add URL to collection, if applies -->
-            <a href="/" class="font-medium text-gray-100">@{location}</a>
+            <a href="/" class="font-medium text-gray-200">@ {location}</a>
           </p>
-          <p class="text-sm text-gray-400">{description}</p>
+          <p class="text-sm text-gray-200">{description}</p>
         </div>
         <div class="flex flex-col justify-end ml-4 items-end">
           {#if dateStart}
             <time
-              class="text-sm text-gray-400"
+              class="text-sm text-gray-200"
               datetime={dateStart.toISOString()}
             >
               {dateStart.getFullYear()}
             </time>
           {/if}
-          <span class="block text-sm text-gray-400 text-center">bis</span>
+          <span class="block text-sm text-gray-200 text-center">bis</span>
           {#if dateEnd}
             <time
-              class="text-sm text-gray-400"
+              class="text-sm text-gray-200"
               datetime={dateEnd.toISOString()}
             >
               {dateEnd.getFullYear()}
             </time>
           {:else}
-            <time class="text-sm text-gray-400">Heute</time>
+            <time class="text-sm text-gray-200">Heute</time>
           {/if}
         </div>
       </div>

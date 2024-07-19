@@ -7,12 +7,12 @@
 
 <GlassCard classes="max-w-md 2xl:max-w-md sticky top-10">
   <div
-    class="w-2/6 h-8 bg-gray-800 rounded-2xl shadow-inner shadow-slate-400 mx-auto mb-4"
+    class="w-2/6 h-8 bg-gray-800 rounded-2xl shadow-inner mx-auto mb-4"
   ></div>
   <img src={portraitSrc} alt="A portrait of me" class="rounded-lg" />
   <div class="flex flex-col gap-2">
     <h2 class="text-3xl xl:text-4xl font-bold text-white mt-8">{name}</h2>
-    <p class="text-gray-400 2xl:text-lg">{role}</p>
+    <p class="text-gray-200 2xl:text-lg">{role}</p>
   </div>
 </GlassCard>
 
@@ -56,7 +56,7 @@
     <img src={portraitSrc} alt="A portrait of me" class="rounded-lg" />
     <div class="flex flex-col gap-2">
       <h2 class="text-3xl xl:text-4xl font-bold text-white mt-8">{name}</h2>
-      <p class="text-gray-400 2xl:text-lg">{role}</p>
+      <p class="text-gray-200 2xl:text-lg">{role}</p>
     </div>
   </foreignObject>
 </svg>
