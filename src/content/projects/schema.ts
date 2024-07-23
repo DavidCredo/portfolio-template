@@ -16,6 +16,8 @@ export const projects = defineCollection({
             alt: z.string(),
         }),
         url: z.string().optional(),
+        // TODO: Change from string to enum
+        linktype: z.string().optional(),
         content: z.array(z.object({
             title: z.string().optional(),
             body: z.string().optional(),

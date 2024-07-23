@@ -3,6 +3,7 @@ import Pill from "../../components/Pill.svelte";
 import Base from "../../layouts/Base.astro";
 import { availableTags } from "../../../constants";
 import GithubIcon from "../../components/Icons/GithubIcon.svelte";
+import PDFIcon from "../../components/Icons/PDFIcon.svelte";
 import { getEntry } from "astro:content";
 import ProjectImage from "../../components/Projects/ProjectImage.svelte";
 import IconButton from "../../components/IconButton.svelte";
@@ -14,7 +15,7 @@ if (!project) {
   return Astro.redirect("/404");
 }
 
-const { title, tags, longDescription, content, url } = project.data;
+const { title, tags, longDescription, content, url, linktype } = project.data;
 ---
 
 <Base title={title}>
@@ -35,7 +36,7 @@ const { title, tags, longDescription, content, url } = project.data;
               alt={graphic.alt}
               classes={`hidden 2xl:block 2xl:col-span-2 ${index % 2 === 0 ? "2xl:col-start-1" : "2xl:col-start-2"}`}
             />
-          ))
+          )),
         )
       }
     </div>
@@ -102,10 +103,20 @@ const { title, tags, longDescription, content, url } = project.data;
         ))
       }
       {
-        url && (
-          <IconButton href={url} target="_blank" label="Zum Github Repository">
-            <GithubIcon />
+        url && linktype == "pdf" ? (
+          <IconButton href={url} target="_blank" label="Zum ausführlichen Dokument">
+            <PDFIcon />
           </IconButton>
+        ) : (
+          url && (
+            <IconButton
+              href={url}
+              target="_blank"
+              label="Zum Github Repository"
+            >
+              <GithubIcon />
+            </IconButton>
+          )
         )
       }
     </div>
