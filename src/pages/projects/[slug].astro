@@ -4,6 +4,7 @@ import Base from "../../layouts/Base.astro";
 import { availableTags } from "../../../constants";
 import GithubIcon from "../../components/Icons/GithubIcon.svelte";
 import PDFIcon from "../../components/Icons/PDFIcon.svelte";
+import WebIcon from "../../components/Icons/WebIcon.svelte";
 import { getEntry } from "astro:content";
 import ProjectImage from "../../components/Projects/ProjectImage.svelte";
 import IconButton from "../../components/IconButton.svelte";
@@ -103,10 +104,21 @@ const { title, tags, longDescription, content, url, linktype } = project.data;
         ))
       }
       {
+        // TODO: move to typecheck whenever linktype is an enum
         url && linktype == "pdf" ? (
           <IconButton href={url} target="_blank" label="Zum ausführlichen Dokument">
             <PDFIcon />
           </IconButton>
+        ) : url && linktype == "demo" ? (
+          url && (
+            <IconButton
+              href={url}
+              target="_blank"
+              label="Zur Live-Version"
+            >
+              <WebIcon />
+            </IconButton>
+          )
         ) : (
           url && (
             <IconButton
