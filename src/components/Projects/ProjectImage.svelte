@@ -7,6 +7,9 @@
 </script>
 
 <GlassCard {classes}>
-  <img {src} {alt} class="rounded-md shadow-xl" />
-  <p class="text-center text-gray-100 text-opacity-80 pt-6 italic">{alt}</p>
+  {#if !src.endsWith('.png')}
+    <img {src} {alt} class="rounded-md shadow-xl" />
+  {:else}
+    <img {src} {alt} class="rounded-md" />
+  {/if}  <p class="text-center text-gray-100 text-opacity-80 pt-6 italic">{alt}</p>
 </GlassCard>
