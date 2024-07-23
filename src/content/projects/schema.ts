@@ -4,8 +4,8 @@ export const projects = defineCollection({
     type: "data",
     schema: z.object({
         title: z.string(),
-        subtitle: z.string(),
-        techStack: z.array(z.string()),
+        subtitle: z.string().optional(),
+        techStack: z.array(z.string()).optional(),
         projectDuration: z.string(),
         team: z.string(),
         longDescription: z.string(),
