@@ -22,7 +22,7 @@
         <img
           src={project.data.thumbnail.src}
           alt={project.data.thumbnail.alt}
-          class=" rounded-lg mb-4 h-72 w-full object-cover"
+          class=" rounded-lg mb-4 object-cover aspect-square"
         />
         <div class="flex flex-wrap gap-2 mt-4 min-w-56">
           {#each project.data.tags as tag}
