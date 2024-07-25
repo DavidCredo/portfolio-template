@@ -103,9 +103,9 @@ const { title, tags, longDescription, content, url, linktype } = project.data;
                   src={graphic.src}
                   alt={graphic.alt}
                   images={allImages!}
+                  interactive={false}
                   index={allImages!.indexOf(graphic)}
                   classes="col-span-3 col-start-1 col-end-3 block md:hidden transition-transform transform hover:scale-105 duration-300"
-                  client:only="svelte"
                 />
               ))}
             </div>

@@ -10,7 +10,7 @@
   export let classes: string;
   export let images: { src: string; alt: string }[] | [] = [];
   export let index: number;
-
+  export let interactive: boolean = true;
   const dialog = createDialog({ label: "Bild vergrößern" }) as any;
 </script>
 
@@ -24,5 +24,7 @@
     <p class="text-center text-gray-100 text-opacity-80 pt-6 italic">{alt}</p>
   </button>
 
-  <ProjectImageModal {images} startIndex={index} {dialog} />
+  {#if interactive}
+    <ProjectImageModal {images} startIndex={index} {dialog} />
+  {/if}
 </GlassCard>
