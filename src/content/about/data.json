@@ -52,6 +52,38 @@
             "dateEnd": "2015-09-01",
             "description": "Assisted senior developers with building and maintaining web applications.",
             "type": "Education"
+        },
+        {
+            "title": "Web Development Intern",
+            "location": "Company G",
+            "dateStart": "2013-09-01",
+            "dateEnd": "2014-09-01",
+            "description": "Worked on a team of developers to build and maintain a large web application.",
+            "type": "Work"
+        },
+        {
+            "title": "Software Engineer",
+            "location": "Company H",
+            "dateStart": "2012-09-01",
+            "dateEnd": "2013-09-01",
+            "description": "Developed and maintained websites for a variety of clients.",
+            "type" : "Volunteer"
+        },
+        {
+            "title": "Junior Developer",
+            "location": "Company I",
+            "dateStart": "2011-09-01",
+            "dateEnd": "2012-09-01",
+            "description": "Assisted senior developers with building and maintaining web applications.",
+            "type": "Education"
+        },
+        {
+            "title": "Web Development Intern",
+            "location": "Company J",
+            "dateStart": "2010-09-01",
+            "dateEnd": "2011-09-01",
+            "description": "Worked on a team of developers to build and maintain a large web application.",
+            "type": "Work"
         }
         
     ]

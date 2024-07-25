@@ -5,7 +5,7 @@
   export let role: string;
 </script>
 
-<GlassCard classes="max-w-md 2xl:max-w-md sticky top-10">
+<GlassCard classes="max-w-sm">
   <div
     class="w-2/6 h-8 bg-gray-800 rounded-2xl shadow-inner mx-auto mb-4"
   ></div>
