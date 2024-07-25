@@ -10,7 +10,7 @@ const projects = await getCollection("projects");
 <Base title="Coole Projekte">
   <div>
     <!-- TODO: implement smart min-width so that it doesn't collaps when a filter doesn't results in a project -->
-    <main class="mx-auto flex justify-center min-w-full">
+    <section class="mx-auto flex justify-center min-w-full">
       <div
         class="grid gap-x-6 gap-y-12 mt-6 mx-6 md:mx-12 md:grid-cols-2 lg:grid-cols-3"
       >
@@ -25,6 +25,6 @@ const projects = await getCollection("projects");
         </div>
         <ProjectGallery projects={projects} client:only="svelte" />
       </div>
-    </main>
+    </section>
   </div>
 </Base>

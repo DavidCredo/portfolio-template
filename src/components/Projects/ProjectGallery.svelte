@@ -14,11 +14,11 @@
 </script>
 
 {#each filteredProjects as project (project.id)}
-  <div transition:scale>
+  <div transition:scale class="grid col-auto row-auto">
     <GlassCard
-      classes="hover:bg-white/20 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl active:scale-90 active:shadow-xl"
+      classes="hover:bg-white/20 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl active:scale-90 active:shadow-xl h-full max-w-lg"
     >
-      <a href={`/projects/${project.id}`} class="block">
+      <a href={`/projects/${project.id}`} class="flex flex-col items-start">
         <img
           src={project.data.thumbnail.src}
           alt={project.data.thumbnail.alt}
