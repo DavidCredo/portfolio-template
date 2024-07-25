@@ -9,8 +9,8 @@
   $: filteredProjects = projects.filter((project) => {
     if ($selectedTagsStore.length === 0) return true;
     // Check if all selected tags are in the project
-    return $selectedTagsStore.every((tag) => project.data.tags.includes(tag));
-  });
+    return $selectedTagsStore.every((tag) => project.data.tags.includes(tag))
+  }).sort((a, b) => a.data.id - b.data.id);
 </script>
 
 {#each filteredProjects as project (project.id)}
