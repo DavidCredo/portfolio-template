@@ -27,12 +27,12 @@
         on:click={dialog.close}
         transition:fade={{ duration: 100 }}
       />
-      <div class="fixed inset-0">
+      <div class="fixed inset-0 ">
         <div
-          class="flex min-h-full items-center justify-center text-center w-full p-4 lg:p-16"
+          class="flex items-center justify-center text-center w-full p-4 lg:p-12"
         >
           <div
-            class="w-fit max-w-2xl"
+            class="w-11/12"
             use:dialog.modal
             in:scale={{ duration: 300, delay: 100 }}
             out:scale={{ duration: 200 }}
@@ -58,7 +58,7 @@
                 </svg>
               </button>
             </div>
-            <div class="flex flex-row items-center w-full">
+            <div class="flex flex-row items-center ">
               {#if index > 0}
                 <button
                   class="bg-white/20 rounded-full p-4 mr-4 transition-transform transform hover:scale-110"
@@ -80,14 +80,14 @@
                   </svg>
                 </button>
               {:else}
-                <div class="w-24 h-24" />
+                <div class="w-16 h-14 mr-4 " />
               {/if}
 
               <div
-                class="rounded-xl bg-white/20 border-white/30 shadow-xl backdrop-filter backdrop-blur-md bg-opacity-20 border p-6 w-fit"
+                class="rounded-xl bg-white/20 border-white/30 shadow-xl backdrop-filter backdrop-blur-md bg-opacity-20 border p-6 h-[calc(75vh)] w-full"
               >
                 {#each [images[index]] as { src, alt }}
-                  <img {src} {alt} class="rounded-xl" />
+                  <img {src} {alt} class="rounded-xl object-cover h-full w-full" />
                   <p
                     class="text-center text-gray-100 text-opacity-80 pt-6 italic"
                   >
@@ -117,7 +117,7 @@
                   </svg>
                 </button>
               {:else}
-                <div class="w-24 h-24" />
+                <div class="w-16 h-14 ml-4" />
               {/if}
             </div>
           </div>
