@@ -87,7 +87,7 @@
                 class="rounded-xl bg-white/20 border-white/30 shadow-xl backdrop-filter backdrop-blur-md bg-opacity-20 border p-6 h-[calc(75vh)] w-full"
               >
                 {#each [images[index]] as { src, alt }}
-                  <img {src} {alt} class="rounded-xl object-cover h-full w-full" />
+                  <img {src} {alt} class="rounded-xl object-contain h-full w-full" />
                   <p
                     class="text-center text-gray-100 text-opacity-80 pt-6 italic"
                   >
