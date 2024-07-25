@@ -16,28 +16,34 @@ if (!project) {
   return Astro.redirect("/404");
 }
 
+const allImages =
+  project.data.content?.map((content) => content.graphics).flat() || [];
+
 const { title, tags, longDescription, content, url, linktype } = project.data;
 ---
 
 <Base title={title}>
   <div
-    class="container flex flex-col items-center mx-auto md:place-content-center 2xl:grid 2xl:grid-cols-2 p-8 2xl:row-auto"
+  class="container flex flex-col items-center mx-auto place-content-center md:grid md:grid-cols-2 p-8 md:row-auto"
   >
-    <h1 class="text-6xl w-full text-gray-100 mb-4 lg:col-span-1 text-center">
+    <h1 class="text-6xl w-full text-gray-100 mb-4 md:col-span-1 text-center">
       {title}
     </h1>
     <div
-      class="hidden 2xl:grid 2xl:grid-cols-3 2xl:gap-8 2xl:mr-16 lg:col-span-1 lg:row-start-2"
+      class="hidden md:grid md:grid-cols-3 md:gap-8 md:mr-16 md:col-span-1 md:row-start-2"
     >
       {
         content?.map((content, index) =>
-          content.graphics?.map((graphic) => (
+          content.graphics?.map((graphic, graphicIndex) => (
             <ProjectImage
               src={graphic.src}
               alt={graphic.alt}
-              classes={`hidden 2xl:block 2xl:col-span-2 ${index % 2 === 0 ? "2xl:col-start-1" : "2xl:col-start-2"}`}
+              images={allImages}
+              index={allImages.indexOf(graphic)}
+              classes={`hidden md:block md:col-span-2  ${index % 2 === 0 ? "md:col-start-1" : "md:col-start-2"} transition-transform transform hover:scale-105 duration-300`}
+              client:only="svelte"
             />
-          )),
+          ))
         )
       }
     </div>
@@ -91,12 +97,15 @@ const { title, tags, longDescription, content, url, linktype } = project.data;
                 </section>
               )}
             </>
-            <div class="grid grid-cols-2 gap-8 mt-8 2xl:hidden">
+            <div class="grid grid-cols-2 gap-8 mt-8 md:hidden mb-8">
               {content.graphics?.map((graphic) => (
                 <ProjectImage
                   src={graphic.src}
                   alt={graphic.alt}
-                  classes="col-span-3 col-start-1 col-end-3 block 2xl:hidden"
+                  images={allImages!}
+                  index={allImages!.indexOf(graphic)}
+                  classes="col-span-3 col-start-1 col-end-3 block md:hidden transition-transform transform hover:scale-105 duration-300"
+                  client:only="svelte"
                 />
               ))}
             </div>
@@ -106,16 +115,16 @@ const { title, tags, longDescription, content, url, linktype } = project.data;
       {
         // TODO: move to typecheck whenever linktype is an enum
         url && linktype == "pdf" ? (
-          <IconButton href={url} target="_blank" label="Zum ausführlichen Dokument">
+          <IconButton
+            href={url}
+            target="_blank"
+            label="Zum ausführlichen Dokument"
+          >
             <PDFIcon />
           </IconButton>
         ) : url && linktype == "demo" ? (
           url && (
-            <IconButton
-              href={url}
-              target="_blank"
-              label="Zur Live-Version"
-            >
+            <IconButton href={url} target="_blank" label="Zur Live-Version">
               <WebIcon />
             </IconButton>
           )
