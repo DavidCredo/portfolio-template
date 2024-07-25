@@ -32,8 +32,8 @@ const { title, headerText } = Astro.props;
     console.log(link.href.split("/"));
     if (link.href.split("/").includes(currentPath.split("/")[1]) && currentPath !== "/") {
       // TODO: Style for current nav link can be changed here
-      link.classList.add("underline");
-      link.classList.add("underline-offset-4");
+      link.classList.add("opacity-60");
+      link.classList.add("scale-110");
     }
   });
 </script>
@@ -50,7 +50,7 @@ const { title, headerText } = Astro.props;
       <div class="flex lg:flex-1">
         <a
           href="/"
-          class="-m-1.5 p-1.5 transform tansition duration-300 hover:scale-110"
+          class="-m-1.5 p-1.5 transform tansition duration-300 hover:scale-110 hover:opacity-60"
         >
           <span class="sr-only">{headerText}</span>
           <img class="h-8 w-auto" src={layout.data.header.logo} alt="" />
@@ -80,17 +80,17 @@ const { title, headerText } = Astro.props;
       <div class="hidden lg:flex lg:gap-x-12">
         <a
           href="/projects"
-          class="text-sm lg:text-base font-semibold leading-6 text-gray-100 transition duration-300 hover:scale-110"
+          class="text-sm lg:text-base font-semibold leading-6 text-gray-100 transition duration-300 hover:scale-110 hover:opacity-60"
           >Portfolio</a
         >
         <a
           href="/aboutMe"
-          class="text-sm lg:text-base font-semibold leading-6 text-gray-100 transition duration-300 hover:scale-110"
+          class="text-sm lg:text-base font-semibold leading-6 text-gray-100 transition duration-300 hover:scale-110 hover:opacity-60"
           >Über mich</a
         >
         <a
           href=`mailto:${layout.data.head.mailadress}`
-          class="text-sm lg:text-base font-semibold leading-6 text-gray-100 transition duration-300 hover:scale-110"
+          class="text-sm lg:text-base font-semibold leading-6 text-gray-100 transition duration-300 hover:scale-110 hover:opacity-60"
           >Schreib mir!</a
         >
       </div>
@@ -135,17 +135,17 @@ const { title, headerText } = Astro.props;
             <div class="space-y-2 py-6">
               <a
                 href="/projects"
-                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800 transition duration-300 hover:scale-110"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800 transition duration-300 hover:scale-110 hover:opacity-60"
                 >Portfolio</a
               >
               <a
                 href="/aboutMe"
-                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800 transition duration-300 hover:scale-110"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800 transition duration-300 hover:scale-110 hover:opacity-60"
                 >Über mich</a
               >
               <a
                 href=`mailto:${layout.data.head.mailadress}`
-                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800 transition duration-300 hover:scale-110"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800 transition duration-300 hover:scale-110 hover:opacity-60"
                 >Schreib mir!</a
               >
             </div>
