@@ -7,7 +7,7 @@
 
 <GlassCard classes="max-w-sm">
   <div
-    class="w-2/6 h-8 bg-gray-800 rounded-2xl shadow-inner mx-auto mb-4"
+    class="w-2/6 h-8 bg-gray-800 rounded-2xl shadow-inner mx-auto mb-10"
   ></div>
   <img src={portraitSrc} alt="A portrait of me" class="rounded-lg" />
   <div class="flex flex-col gap-2">
