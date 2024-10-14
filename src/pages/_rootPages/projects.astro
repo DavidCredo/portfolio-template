@@ -14,7 +14,7 @@ const filteredProjects = projects.filter((project) =>
 );
 ---
 
-<Base title="Coole Projekte">
+<Base title={fromDict("projects.meta")}>
   <div>
     <!-- TODO: implement smart min-width so that it doesn't collaps when a filter doesn't results in a project -->
     <section class="mx-auto flex justify-center min-w-full">

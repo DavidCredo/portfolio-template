@@ -40,6 +40,7 @@ export const ui: Record<Language, Record<string, string>> = {
 
         'projects.title': 'Projects',
         'projects.subtitle': 'A selection of projects that I am particularly proud of.',
+        'projects.meta': 'Interesting portfolio',
         'projects.duration': 'Duration',
         'projects.team': 'Team',
         'projects.skills': 'Skills',
@@ -74,6 +75,7 @@ export const ui: Record<Language, Record<string, string>> = {
 
         'projects.title': 'Projekte',
         'projects.subtitle': 'Eine Auswahl von Projekten, auf die ich besonders stolz bin.',
+        'projects.meta': 'Interessantes Portfolio',
         'projects.duration': 'Kapazität',
         'projects.skills': 'Fähigkeiten',
         'projects.filter': "Nach Tags filtern",
