@@ -1,10 +1,15 @@
 <script lang="ts">
+  import { useTranslations } from "../../i18n/utils";
+
   export let title: string;
   export let location: string;
   export let description: string;
   export let dateStart: Date;
   export let dateEnd: Date | undefined;
   export let isLast: boolean;
+  export let language: "de" | "en";
+
+  const fromDict = useTranslations(language);
 </script>
 
 <li>
@@ -39,7 +44,9 @@
               {dateStart.getFullYear()}
             </time>
           {/if}
-          <span class="block text-sm text-gray-300 text-center">bis</span>
+          <span class="block text-sm text-gray-300 text-center"
+            >{fromDict("timeline.timespan")}</span
+          >
           {#if dateEnd}
             <time
               class="text-sm text-gray-300"
@@ -48,7 +55,9 @@
               {dateEnd.getFullYear()}
             </time>
           {:else}
-            <time class="text-sm text-gray-300">heute</time>
+            <time class="text-sm text-gray-300"
+              >{fromDict("timeline.current")}</time
+            >
           {/if}
         </div>
       </div>

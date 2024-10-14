@@ -1,8 +1,6 @@
 <script lang="ts">
   import GlassCard from "../GlassCard.svelte";
   import { createDialog, type Dialog } from "svelte-headlessui";
-  import Portal from "svelte-portal";
-  import { fade, scale, slide } from "svelte/transition";
   import ProjectImageModal from "./ProjectImageModal.svelte";
 
   export let src: string;

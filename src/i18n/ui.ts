@@ -29,11 +29,15 @@ export const ui = {
         'about.section.skills': 'My skills',
         'about.section.timeline': 'My milestones',
 
+        'timeline.timespan': 'until',
+        'timeline.current': 'Today',
+
         'projects.title': 'Projects',
         'projects.subtitle': 'A selection of projects that I am particularly proud of.',
         'projects.duration': 'Duration',
         'projects.team': 'Team',
         'projects.skills': 'Skills',
+        'projects.filter': 'Filter by tags',
 
         'srcButton.github': 'View on GitHub',
         'srcButton.live': 'Visit live demo',
@@ -59,10 +63,14 @@ export const ui = {
         'about.section.skills': 'Meine Stärken',
         'about.section.timeline': 'Meine Stationen',
 
+        'timeline.timespan': 'bis',
+        'timeline.current': 'Heute',
+
         'projects.title': 'Projekte',
         'projects.subtitle': 'Eine Auswahl von Projekten, auf die ich besonders stolz bin.',
         'projects.duration': 'Kapazität',
         'projects.skills': 'Fähigkeiten',
+        'projects.filter': "Nach Tags filtern",
 
         'srcButton.github': 'Zum GitHub Repository',
         'srcButton.live': 'Zur Live-Version',

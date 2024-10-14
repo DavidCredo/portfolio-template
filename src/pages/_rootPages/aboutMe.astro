@@ -48,6 +48,7 @@ const fromDict = useTranslations(lang);
       <!-- TODO: adjust title content as needed -->
       <h2 class="text-xl text-gray-100 mb-4">{fromDict('about.section.timeline')}</h2>
       <Timeline
+        language={lang}
         timeLineEntries={about.data.timeLineData as TimelineData[]}
         client:only="svelte"
       />

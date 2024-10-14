@@ -5,11 +5,14 @@
   import Pill from "../Pill.svelte";
   import { fade } from "svelte/transition";
   import CloseIcon from "../Icons/CloseIcon.svelte";
-
+  import { useTranslations } from "../../i18n/utils";
   export let classes = "";
+  export let language: "de" | "en";
+
+  const fromDict = useTranslations(language);
 
   const listBox = createListbox({
-    label: "Nach Tags filtern",
+    label: fromDict("projects.filter"),
     multi: true,
     selected: $selectedTagsStore,
   });
@@ -40,13 +43,15 @@
     class="inline-flex justify-center w-full px-6 py-2 text-sm font-medium text-gray-100 bg-white/10 border border-transparent rounded-md shadow-sm hover:bg-white/20 focus:outline-none backdrop-filter backdrop-blur-md"
     on:select={handleSelect}
   >
-    <span class="text-nowrap text-gray-100">Nach Tags filtern</span>
+    <span class="text-nowrap text-gray-100"
+      >{fromDict("projects.filter")}</span
+    >
   </button>
   {#if $listBox.expanded}
-  <!-- TODO: blend scrollbar more into the applied colorscheme -->
+    <!-- TODO: blend scrollbar more into the applied colorscheme -->
     <ul
       use:listBox.items
-      class="absolute right-0 max-w-60 z-10 mt-12 w-full bg-slate-900/50 border border-white/20 backdrop-filter backdrop-blur-md rounded-md shadow-lg ring-1 ring-black ring-opacity-5 list-none focus:outline-none max-h-56 overflow-y-auto overflow-x-hidden "
+      class="absolute right-0 max-w-60 z-10 mt-12 w-full bg-slate-900/50 border border-white/20 backdrop-filter backdrop-blur-md rounded-md shadow-lg ring-1 ring-black ring-opacity-5 list-none focus:outline-none max-h-56 overflow-y-auto overflow-x-hidden"
     >
       {#each availableTags as tag, id}
         {@const active = $listBox.selected.includes(tag.name)}

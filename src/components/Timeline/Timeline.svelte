@@ -9,6 +9,7 @@
     BriefcaseSolid,
   } from "flowbite-svelte-icons";
   export let timeLineEntries: TimelineData[];
+  export let language: "de" | "en";
 
   function makeIcon(type: IconType) {
     switch (type) {
@@ -31,6 +32,7 @@
 <ul role="list" class="w-full">
   {#each timeLineEntries as entry, index}
     <TimelineEntry
+      {language}
       title={entry.title}
       location={entry.location}
       description={entry.description}
