@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import ProjectFilter from "../../components/Projects/ProjectFilter.svelte";
 import ProjectGallery from "../../components/Projects/ProjectGallery.svelte";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { defaultLang } from "../../i18n/ui";
 
 const lang = getLangFromUrl(Astro.url);
 const fromDict = useTranslations(lang);
@@ -31,7 +32,7 @@ const filteredProjects = projects.filter((project) =>
         <div class="col-span-full inline-flex justify-between w-full">
           <ProjectFilter client:only="svelte" language={lang} />
         </div>
-        <ProjectGallery projects={filteredProjects} client:only="svelte" />
+        <ProjectGallery projects={filteredProjects} currentLang={lang} defaultLang={defaultLang} client:only="svelte" />
       </div>
     </section>
   </div>
