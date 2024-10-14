@@ -1,14 +1,20 @@
-export const languages = {
-    en: 'English',
-    de: 'Deutsch',
+export enum Language {
+    EN = 'en',
+    DE = 'de',
+}
+
+
+export const languages : Record<Language, string> = {
+    [Language.EN]: 'English',
+    [Language.DE]: 'Deutsch',
 };
 
-export const defaultLang = 'en';
+export const defaultLang = Language.EN;
 
 export const showDefaultLang = false;
 
-export const ui = {
-    en: {
+export const ui: Record<Language, Record<string, string>> = {
+    [Language.EN]: {
         'nav.projects': 'Portfolio',
         'nav.about': 'About me',
         'nav.cta': 'Text me!',
@@ -43,7 +49,7 @@ export const ui = {
         'srcButton.live': 'Visit live demo',
         'srcButton.document': 'Load full document',
     },
-    de: {
+    [Language.DE]: {
         'nav.about': 'Über mich',
         'nav.cta': 'Schreib mir!',
         'nav.open': 'Navigation öffnen',

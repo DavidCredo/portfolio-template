@@ -6,8 +6,9 @@
   import { fade } from "svelte/transition";
   import CloseIcon from "../Icons/CloseIcon.svelte";
   import { useTranslations } from "../../i18n/utils";
+  import type { Language } from "../../i18n/ui";
   export let classes = "";
-  export let language: "de" | "en";
+  export let language: Language;
 
   const fromDict = useTranslations(language);
 
@@ -43,9 +44,7 @@
     class="inline-flex justify-center w-full px-6 py-2 text-sm font-medium text-gray-100 bg-white/10 border border-transparent rounded-md shadow-sm hover:bg-white/20 focus:outline-none backdrop-filter backdrop-blur-md"
     on:select={handleSelect}
   >
-    <span class="text-nowrap text-gray-100"
-      >{fromDict("projects.filter")}</span
-    >
+    <span class="text-nowrap text-gray-100">{fromDict("projects.filter")}</span>
   </button>
   {#if $listBox.expanded}
     <!-- TODO: blend scrollbar more into the applied colorscheme -->
