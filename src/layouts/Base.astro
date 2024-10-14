@@ -17,6 +17,8 @@ const { title, headerText } = Astro.props;
 ---
 
 <script>
+  import { Language } from "../i18n/ui";
+
   // Toggle mobile menu
   document.querySelectorAll(".hamburger").forEach((button) =>
     button.addEventListener("click", () => {
@@ -26,7 +28,7 @@ const { title, headerText } = Astro.props;
       } else {
         console.error("Mobile menu not found");
       }
-    }),
+    })
   );
 
   // highlight current page in navigation
@@ -34,15 +36,28 @@ const { title, headerText } = Astro.props;
   const currentPath = window.location.pathname;
   const links = document.querySelectorAll<HTMLAnchorElement>("nav a");
 
-  // TODO: make it complatible with i18n
   // Kinda hacky... If location of pathName changes, this will break
-  // links.forEach((link) => {
-  //   if (link.href.split("/").includes(currentPath.split("/")[1]) && currentPath !== "/") {
-  //     // TODO: Style for current nav link can be changed here
-  //     link.classList.add("opacity-60");
-  //     link.classList.add("scale-110");
-  //   }
-  // });
+  const languages = Object.values(Language);
+  let index = 1;
+  links.forEach((link) => {
+    languages.every((language) => {
+      if (link.href.split("/").includes(language)) {
+        index = 2;
+        return false;
+      }
+      return true;
+    });
+
+    if (
+      link.href.split("/").includes(currentPath.split("/")[index]) &&
+      currentPath !== "/" &&
+      currentPath !== "/de/"
+    ) {
+      // TODO: Style for current nav link can be changed here
+      link.classList.add("opacity-60");
+      link.classList.add("scale-110");
+    }
+  });
 </script>
 
 <Layout title={title}>
