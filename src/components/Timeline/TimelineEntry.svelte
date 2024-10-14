@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { Language } from "../../i18n/ui";
   import { useTranslations } from "../../i18n/utils";
 
   export let title: string;
@@ -7,7 +8,7 @@
   export let dateStart: Date;
   export let dateEnd: Date | undefined;
   export let isLast: boolean;
-  export let language: "de" | "en";
+  export let language: Language;
 
   const fromDict = useTranslations(language);
 </script>
