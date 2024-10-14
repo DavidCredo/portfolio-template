@@ -2,7 +2,11 @@
 import Layout from "./Layout.astro";
 import Footer from "./Footer.astro";
 import { getEntry } from "astro:content";
-import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../i18n/utils";
 import LanguagePicker from "../components/LanguagePicker.astro";
 
 const lang = getLangFromUrl(Astro.url);
@@ -22,7 +26,7 @@ const { title, headerText } = Astro.props;
       } else {
         console.error("Mobile menu not found");
       }
-    })
+    }),
   );
 
   // highlight current page in navigation
@@ -30,21 +34,19 @@ const { title, headerText } = Astro.props;
   const currentPath = window.location.pathname;
   const links = document.querySelectorAll<HTMLAnchorElement>("nav a");
 
-    // TODO: make it complatible with i18n
-    // Kinda hacky... If location of pathName changes, this will break
-  links.forEach((link) => {
-    if (link.href.split("/").includes(currentPath.split("/")[1]) && currentPath !== "/") {
-      // TODO: Style for current nav link can be changed here
-      link.classList.add("opacity-60");
-      link.classList.add("scale-110");
-    }
-  });
+  // TODO: make it complatible with i18n
+  // Kinda hacky... If location of pathName changes, this will break
+  // links.forEach((link) => {
+  //   if (link.href.split("/").includes(currentPath.split("/")[1]) && currentPath !== "/") {
+  //     // TODO: Style for current nav link can be changed here
+  //     link.classList.add("opacity-60");
+  //     link.classList.add("scale-110");
+  //   }
+  // });
 </script>
 
 <Layout title={title}>
   <!-- TODO: Header auslagern, Navigation weniger doppeln -->
-  <!-- TODO: IMPORTANT SIMPLE UX MEASURE: show where you are at the navigation -->
-  <!-- TODO: Links should behave the same on the entire website - so they have enlarge to 110% and change color -->
   <header>
     <nav
       class="flex items-center justify-between p-6 lg:px-8"
@@ -52,7 +54,7 @@ const { title, headerText } = Astro.props;
     >
       <div class="flex lg:flex-1">
         <a
-          href={translatePath('/')}
+          href={translatePath("/")}
           class="-m-1.5 p-1.5 transform tansition duration-300 hover:scale-110 hover:opacity-60"
         >
           <span class="sr-only">{headerText}</span>
@@ -64,7 +66,7 @@ const { title, headerText } = Astro.props;
           type="button"
           class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100 hamburger"
         >
-          <span class="sr-only">{fromDict('nav.open')}</span>
+          <span class="sr-only">{fromDict("nav.open")}</span>
           <svg
             class="h-6 w-6"
             fill="none"
@@ -82,19 +84,19 @@ const { title, headerText } = Astro.props;
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
         <a
-          href={translatePath('/projects/')}
+          href={translatePath("/projects/")}
           class="text-sm lg:text-base font-semibold leading-6 text-gray-100 transition duration-300 hover:scale-110 hover:opacity-60"
-          >{fromDict('nav.projects')}</a
+          >{fromDict("nav.projects")}</a
         >
         <a
-          href={translatePath('/aboutMe/')}
+          href={translatePath("/aboutMe/")}
           class="text-sm lg:text-base font-semibold leading-6 text-gray-100 transition duration-300 hover:scale-110 hover:opacity-60"
-          >{fromDict('nav.about')}</a
+          >{fromDict("nav.about")}</a
         >
         <a
           href=`mailto:${layout.data.head.mailadress}`
           class="text-sm lg:text-base font-semibold leading-6 text-gray-100 transition duration-300 hover:scale-110 hover:opacity-60"
-          >{fromDict('nav.cta')}</a
+          >{fromDict("nav.cta")}</a
         >
         <LanguagePicker />
       </div>
@@ -108,7 +110,7 @@ const { title, headerText } = Astro.props;
       >
         <div class="flex items-center justify-between">
           <a
-            href={translatePath('/')}
+            href={translatePath("/")}
             class="-m-1.5 p-1.5 transform tansition duration-300 hover:scale-110"
           >
             <span class="sr-only">{headerText}</span>
@@ -118,7 +120,7 @@ const { title, headerText } = Astro.props;
             type="button"
             class="-m-2.5 rounded-md p-2.5 text-gray-100 hamburger"
           >
-            <span class="sr-only">{fromDict('nav.close')}</span>
+            <span class="sr-only">{fromDict("nav.close")}</span>
             <svg
               class="h-6 w-6"
               fill="none"
@@ -138,19 +140,19 @@ const { title, headerText } = Astro.props;
           <div class="-my-6 divide-y divide-gray-100/10">
             <div class="space-y-2 py-6">
               <a
-                href={translatePath('/projects/')}
+                href={translatePath("/projects/")}
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800 transition duration-300 hover:scale-110 hover:opacity-60"
-                >{fromDict('nav.projects')}</a
+                >{fromDict("nav.projects")}</a
               >
               <a
-                href={translatePath('/aboutMe/')}
+                href={translatePath("/aboutMe/")}
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800 transition duration-300 hover:scale-110 hover:opacity-60"
-                >{fromDict('nav.about')}</a
+                >{fromDict("nav.about")}</a
               >
               <a
                 href=`mailto:${layout.data.head.mailadress}`
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800 transition duration-300 hover:scale-110 hover:opacity-60"
-                >{fromDict('nav.cta')}</a
+                >{fromDict("nav.cta")}</a
               >
               <LanguagePicker />
             </div>
