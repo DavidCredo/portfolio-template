@@ -2,8 +2,13 @@
 import Layout from "./Layout.astro";
 import Footer from "./Footer.astro";
 import { getEntry } from "astro:content";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import LanguagePicker from "../components/LanguagePicker.astro";
 
-const layout = await getEntry("layout", "data");
+const lang = getLangFromUrl(Astro.url);
+const fromDict = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const layout = await getEntry("layout", `${lang}/data`);
 const { title, headerText } = Astro.props;
 ---
 
@@ -23,13 +28,11 @@ const { title, headerText } = Astro.props;
   // highlight current page in navigation
 
   const currentPath = window.location.pathname;
-  console.log(currentPath.split("/"));
   const links = document.querySelectorAll<HTMLAnchorElement>("nav a");
 
+    // TODO: make it complatible with i18n
     // Kinda hacky... If location of pathName changes, this will break
   links.forEach((link) => {
-    console.log(link.href);
-    console.log(link.href.split("/"));
     if (link.href.split("/").includes(currentPath.split("/")[1]) && currentPath !== "/") {
       // TODO: Style for current nav link can be changed here
       link.classList.add("opacity-60");
@@ -49,7 +52,7 @@ const { title, headerText } = Astro.props;
     >
       <div class="flex lg:flex-1">
         <a
-          href="/"
+          href={translatePath('/')}
           class="-m-1.5 p-1.5 transform tansition duration-300 hover:scale-110 hover:opacity-60"
         >
           <span class="sr-only">{headerText}</span>
@@ -61,7 +64,7 @@ const { title, headerText } = Astro.props;
           type="button"
           class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100 hamburger"
         >
-          <span class="sr-only">Hauptmenü öffnen</span>
+          <span class="sr-only">{fromDict('nav.open')}</span>
           <svg
             class="h-6 w-6"
             fill="none"
@@ -79,20 +82,21 @@ const { title, headerText } = Astro.props;
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
         <a
-          href="/projects"
+          href={translatePath('/projects/')}
           class="text-sm lg:text-base font-semibold leading-6 text-gray-100 transition duration-300 hover:scale-110 hover:opacity-60"
-          >Portfolio</a
+          >{fromDict('nav.projects')}</a
         >
         <a
-          href="/aboutMe"
+          href={translatePath('/aboutMe/')}
           class="text-sm lg:text-base font-semibold leading-6 text-gray-100 transition duration-300 hover:scale-110 hover:opacity-60"
-          >Über mich</a
+          >{fromDict('nav.about')}</a
         >
         <a
           href=`mailto:${layout.data.head.mailadress}`
           class="text-sm lg:text-base font-semibold leading-6 text-gray-100 transition duration-300 hover:scale-110 hover:opacity-60"
-          >Schreib mir!</a
+          >{fromDict('nav.cta')}</a
         >
+        <LanguagePicker />
       </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
@@ -104,7 +108,7 @@ const { title, headerText } = Astro.props;
       >
         <div class="flex items-center justify-between">
           <a
-            href="/"
+            href={translatePath('/')}
             class="-m-1.5 p-1.5 transform tansition duration-300 hover:scale-110"
           >
             <span class="sr-only">{headerText}</span>
@@ -114,7 +118,7 @@ const { title, headerText } = Astro.props;
             type="button"
             class="-m-2.5 rounded-md p-2.5 text-gray-100 hamburger"
           >
-            <span class="sr-only">Menü schließen</span>
+            <span class="sr-only">{fromDict('nav.close')}</span>
             <svg
               class="h-6 w-6"
               fill="none"
@@ -134,20 +138,21 @@ const { title, headerText } = Astro.props;
           <div class="-my-6 divide-y divide-gray-100/10">
             <div class="space-y-2 py-6">
               <a
-                href="/projects"
+                href={translatePath('/projects/')}
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800 transition duration-300 hover:scale-110 hover:opacity-60"
-                >Portfolio</a
+                >{fromDict('nav.projects')}</a
               >
               <a
-                href="/aboutMe"
+                href={translatePath('/aboutMe/')}
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800 transition duration-300 hover:scale-110 hover:opacity-60"
-                >Über mich</a
+                >{fromDict('nav.about')}</a
               >
               <a
                 href=`mailto:${layout.data.head.mailadress}`
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800 transition duration-300 hover:scale-110 hover:opacity-60"
-                >Schreib mir!</a
+                >{fromDict('nav.cta')}</a
               >
+              <LanguagePicker />
             </div>
           </div>
         </div>
@@ -183,7 +188,6 @@ const { title, headerText } = Astro.props;
     @apply text-gray-100 text-base;
   }
   body {
-    /* slate 800 */
     background-color: #1f2937;
   }
   h1 {
@@ -197,12 +201,4 @@ const { title, headerText } = Astro.props;
   p {
     @apply my-4;
   }
-  /* a {
-  }
-  ul {
-    @apply list-disc list-inside;
-  }
-  li {
-    @apply my-2;
-  } */
 </style>

@@ -1,0 +1,56 @@
+---
+import EmployeeCard from "../../components/EmployeeCard.svelte";
+import TagGrid from "../../components/TagGrid.svelte";
+import Timeline from "../../components/Timeline/Timeline.svelte";
+import Base from "../../layouts/Base.astro";
+import { getEntry } from "astro:content";
+import type { TimelineData } from "../../types";
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const about = await getEntry('about', `${lang}/data`);
+const fromDict = useTranslations(lang);
+---
+
+<Base title={about.data.name}>
+  <section
+    class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 mt-8 gap-12 lg:gap-32"
+  >
+    <article class="relative flex flex-col items-center">
+      <h1 class="p-8 text-4xl text-gray-100">{fromDict('about.title')}</h1>
+      <div class="sticky top-20">
+        <EmployeeCard
+          portraitSrc={about.data.image}
+          name={about.data.name}
+          role={about.data.role}
+        />
+      </div>
+    </article>
+    <article class="lg:col-start-2 w-full">
+      <div
+        class="flex flex-col xl:flex-row items-center xl:items-start mb-4 justify-start"
+      >
+        <div class="flex flex-col">
+          <!-- TODO: Adjust title content as needed -->
+          <h2 class="text-xl text-gray-100 mt-4">{fromDict('about.section.abstract')}</h2>
+          <p class="text-gray-100 0 mb-8 lg:mb-0">
+            {about.data.introduction}
+          </p>
+        </div>
+        <div class="flex flex-col mb-8 lg:mb-0 xl:ml-8 justify-start h-full">
+          <h2 class="text-xl text-gray-100 mb-4 lg:mt-4">{fromDict('about.section.skills')}</h2>
+          <div class="min-w-72"><TagGrid /></div>
+        </div>
+      </div>
+      <div class="mb-8">
+        <p class="text-md text-gray-100 py-2">{about.data.elaboration}</p>
+      </div>
+      <!-- TODO: adjust title content as needed -->
+      <h2 class="text-xl text-gray-100 mb-4">{fromDict('about.section.timeline')}</h2>
+      <Timeline
+        timeLineEntries={about.data.timeLineData as TimelineData[]}
+        client:only="svelte"
+      />
+    </article>
+  </section>
+</Base>

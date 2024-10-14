@@ -1,0 +1,90 @@
+{
+    "name": "Max Mustermann",
+    "role": "Medieningenieur",
+    "introduction": "Ich bin ein Software-Ingenieur mit einer Leidenschaft für das Schaffen und Bauen von Dingen. Ich habe einen starken Hintergrund in der Webentwicklung und habe an einer Vielzahl von Projekten gearbeitet, die von kleinen persönlichen Websites bis hin zu großen Unternehmensanwendungen reichen. Ich bin immer auf der Suche nach neuen Herausforderungen und Möglichkeiten, zu lernen und als Entwickler zu wachsen.",
+    "elaboration": "Ich habe Erfahrung in der Arbeit mit einer breiten Palette von Technologien, darunter JavaScript, React, Node.js und MongoDB. Ich fühle mich wohl bei der Arbeit sowohl am Front-End als auch am Back-End von Webanwendungen und habe ein ausgeprägtes Verständnis für Best Practices in der Webentwicklung. Ich lerne schnell und bin immer auf der Suche nach Möglichkeiten, meine Fähigkeiten zu verbessern und mein Wissen zu erweitern.",
+    "image": "/siteAssets/portrait.jpg",
+    "imageAlt": "A picture of me",
+    "timeLineData": [
+        {
+            "title": "Software Engineer",
+            "location": "Company A",
+            "dateStart": "2020-09-01",
+            "description": "Worked on a team of developers to build and maintain a large web application.",
+            "type": "Work"
+        },
+        {
+            "title": "Web Developer",
+            "location": "Company B",
+            "dateStart": "2018-09-01",
+            "dateEnd": "2020-09-01",
+            "description": "Developed and maintained websites for a variety of clients.",
+            "type" : "Volunteer"
+        },
+        {
+            "title": "Junior Developer",
+            "location": "Company C",
+            "dateStart": "2017-09-01",
+            "dateEnd": "2018-09-01",
+            "description": "Assisted senior developers with building and maintaining web applications.",
+            "type": "Education"
+        },
+        {
+            "title": "Web Development Intern",
+            "location": "Company D",
+            "dateStart": "2016-09-01",
+            "dateEnd": "2017-09-01",
+            "description": "Worked on a team of developers to build and maintain a large web application.",
+            "type": "Work"
+        },
+        {
+            "title": "Software Engineer",
+            "location": "Company E",
+            "dateStart": "2015-09-01",
+            "dateEnd": "2016-09-01",
+            "description": "Developed and maintained websites for a variety of clients.",
+            "type" : "Volunteer"
+        },
+        {
+            "title": "Junior Developer",
+            "location": "Company F",
+            "dateStart": "2014-09-01",
+            "dateEnd": "2015-09-01",
+            "description": "Assisted senior developers with building and maintaining web applications.",
+            "type": "Education"
+        },
+        {
+            "title": "Web Development Intern",
+            "location": "Company G",
+            "dateStart": "2013-09-01",
+            "dateEnd": "2014-09-01",
+            "description": "Worked on a team of developers to build and maintain a large web application.",
+            "type": "Work"
+        },
+        {
+            "title": "Software Engineer",
+            "location": "Company H",
+            "dateStart": "2012-09-01",
+            "dateEnd": "2013-09-01",
+            "description": "Developed and maintained websites for a variety of clients.",
+            "type" : "Volunteer"
+        },
+        {
+            "title": "Junior Developer",
+            "location": "Company I",
+            "dateStart": "2011-09-01",
+            "dateEnd": "2012-09-01",
+            "description": "Assisted senior developers with building and maintaining web applications.",
+            "type": "Education"
+        },
+        {
+            "title": "Web Development Intern",
+            "location": "Company J",
+            "dateStart": "2010-09-01",
+            "dateEnd": "2011-09-01",
+            "description": "Worked on a team of developers to build and maintain a large web application.",
+            "type": "Work"
+        }
+        
+    ]
+}

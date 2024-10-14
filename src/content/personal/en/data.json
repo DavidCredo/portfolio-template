@@ -1,10 +1,10 @@
 {
     "fullName": "John Doe",
-    "street": "Musterstraße",
+    "street": "Sample street",
     "houseNumber": "42",
     "zip": "12345",
-    "city": "Musterstadt",
-    "country": "Deutschland",
+    "city": "Sample city",
+    "country": "Germany",
     "phone": "0123456789",
     "email": "john.doe@mail.com",
     "linkedIn": "https://linkedin.com/in/johndoe",

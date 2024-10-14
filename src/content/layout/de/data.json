@@ -1,0 +1,11 @@
+{
+    "head": {
+        "title": "Mein Portfolio",
+        "description": "Dies ist die Beschreibung meines Portfolios",
+        "favicon": "/global/favicon.svg",
+        "mailadress": "max.mustermann@mail.com"
+    },
+    "header": {
+        "logo": "/global/logo.svg"
+    }
+}

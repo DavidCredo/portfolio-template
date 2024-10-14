@@ -1,0 +1,42 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getEntry } from "astro:content";
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const landingpage = await getEntry('landingpage', `${lang}/data`);
+const personal = await getEntry('personal', `${lang}/data`);
+const fromDict = useTranslations(lang);
+---
+
+<Base title={personal.data.fullName}>
+  <div class="mx-auto max-w-7xl lg:pb-24 lg:px-32 sm:py-28 py-6 px-6 md:mt-28">
+    <div class="flex-col flex md:flex-row items-center justify-center">
+      <img
+        src={landingpage.data.profilePicture}
+        alt="Picture of me"
+        class="object-contain w-1/2 h-1/2 lg:w-1/3 lg:h-1/3 rounded-full sm:mr-8 lg:mr-16 mr-0 mb-4 lg:mb-16 shadow-lg sm:w-1/4 sm:h-1/4"
+      />
+      <div class="text-left">
+        <h1 class="text-4xl font-bold tracking-tight text-gray-100 sm:text-6xl">
+          {landingpage.data.slogan}
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-300">
+          {landingpage.data.introduction}
+        </p>
+      </div>
+    </div>
+      <div class="mt-4 md:mt-8 flex items-center justify-center gap-x-12">
+      <a
+        href="projects/"
+        class="rounded-md bg-white/20 px-7 py-5 text-sm lg:text-md font-semibold text-gray-100 shadow-sm hover:bg-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 hover:scale-110 transform transition duration-300 ease-in-out"
+        >{fromDict('home.cta.primary')}</a
+      >
+      <a
+        href="aboutMe/"
+        class="text-sm lg:text-md font-semibold leading-6 text-gray-100"
+        >{fromDict('home.cta.secondary')} <span aria-hidden="true">→</span></a
+      >
+    </div>
+  </div>
+</Base>

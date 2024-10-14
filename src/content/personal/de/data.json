@@ -1,0 +1,12 @@
+{
+    "fullName": "Max Mustermann",
+    "street": "Musterstraße",
+    "houseNumber": "42",
+    "zip": "12345",
+    "city": "Musterstadt",
+    "country": "Deutschland",
+    "phone": "0123456789",
+    "email": "max.mustermann@mail.de",
+    "linkedIn": "https://linkedin.com/in/johndoe",
+    "github": "https://github.com/johndoe"
+}
