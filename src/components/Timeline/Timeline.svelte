@@ -8,7 +8,7 @@
     LandmarkSolid,
     BriefcaseSolid,
   } from "flowbite-svelte-icons";
-  import type { Language } from "../../i18n/ui";
+  import type { Language } from "../../constants.ts";
   export let timeLineEntries: TimelineData[];
   export let language: Language;
 

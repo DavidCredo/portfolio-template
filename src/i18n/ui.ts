@@ -1,13 +1,4 @@
-export enum Language {
-    EN = 'en',
-    DE = 'de',
-}
-
-
-export const languages : Record<Language, string> = {
-    [Language.EN]: 'English',
-    [Language.DE]: 'Deutsch',
-};
+import { Language } from '../../constants';
 
 export const defaultLang = Language.EN;
 

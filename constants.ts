@@ -25,6 +25,16 @@ export enum Category {
     Miscellaneous,
 }
 
+export enum Language {
+    EN = 'en',
+    DE = 'de',
+}
+
+export const languages : Record<Language, string> = {
+    [Language.EN]: '🇬🇧 English',
+    [Language.DE]: '🇩🇪 Deutsch',
+};
+
 const categoryColorMap: Record<Category, Color> = {
     [Category.Interface]: Color.Green,
     [Category.Communication]: Color.Blue,

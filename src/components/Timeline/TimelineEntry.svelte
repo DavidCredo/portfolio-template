@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Language } from "../../i18n/ui";
+  import type { Language } from "../../constants.ts";
   import { useTranslations } from "../../i18n/utils";
 
   export let title: string;
