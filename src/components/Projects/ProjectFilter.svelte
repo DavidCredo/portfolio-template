@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { availableTags, Language } from "../../../constants";
+  import { availableTags, Language } from "../../../constants.ts";
   import { selectedTagsStore } from "../../stores/selectedTagsStore";
   import { createListbox } from "svelte-headlessui";
   import Pill from "../Pill.svelte";
@@ -39,4 +39,4 @@
   {/each}
 </div>
 
-<Dropdown classes={classes} items={listBox} options={availableTags} selectEvent={handleSelect} language={language}/>
+<Dropdown classes={classes} items={listBox} options={availableTags} selectEvent={handleSelect} placeholder={fromDict("projects.filter")}/>

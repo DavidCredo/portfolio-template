@@ -1,15 +1,11 @@
 <script lang="ts">
     import { createListbox } from "svelte-headlessui";
-    import { useTranslations } from "../i18n/utils";
-    import type { Language } from "../constants.ts";
 
     export let classes = "";
-    export let language: Language;
     export let items: ReturnType<typeof createListbox>;
     export let options: string[];
+    export let placeholder: string;
     export let selectEvent: (event: CustomEvent<{ selected: string[] }>) => void;
-
-    const fromDict = useTranslations(language);
 </script>
 
 <div class=" relative inline-flex max-h-10 {classes}">
@@ -18,7 +14,7 @@
       class="inline-flex justify-center w-full px-6 py-2 text-sm font-medium text-gray-100 bg-white/10 border border-transparent rounded-md shadow-sm hover:bg-white/20 focus:outline-none backdrop-filter backdrop-blur-md"
       on:select={selectEvent}
     >
-      <span class="text-nowrap text-gray-100">{fromDict("projects.filter")}</span>
+      <span class="text-nowrap text-gray-100">{placeholder}</span>
     </button>
     {#if $items.expanded}
       <!-- TODO: blend scrollbar more into the applied colorscheme -->
