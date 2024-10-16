@@ -7,7 +7,7 @@ import {
   useTranslations,
   useTranslatedPath,
 } from "../i18n/utils";
-import LanguagePicker from "../components/LanguagePicker.astro";
+import LanguagePicker from "../components/LanguagePicker.svelte";
 
 const lang = getLangFromUrl(Astro.url);
 const fromDict = useTranslations(lang);
@@ -28,7 +28,7 @@ const { title, headerText } = Astro.props;
       } else {
         console.error("Mobile menu not found");
       }
-    })
+    }),
   );
 
   // highlight current page in navigation
@@ -76,7 +76,8 @@ const { title, headerText } = Astro.props;
           <img class="h-8 w-auto" src={layout.data.header.logo} alt="" />
         </a>
       </div>
-      <div class="flex lg:hidden">
+      <div class="flex gap-x-6 lg:hidden">
+        <LanguagePicker client:only="svelte" language={lang} dropdownClasses="px-2 py-1 font-small text-xs"/>
         <button
           type="button"
           class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100 hamburger"
@@ -97,7 +98,7 @@ const { title, headerText } = Astro.props;
           </svg>
         </button>
       </div>
-      <div class="hidden lg:flex lg:gap-x-12">
+      <div class="hidden lg:flex lg:gap-x-12 items-center">
         <a
           href={translatePath("/projects/")}
           class="text-sm lg:text-base font-semibold leading-6 text-gray-100 transition duration-300 hover:scale-110 hover:opacity-60"
@@ -113,7 +114,7 @@ const { title, headerText } = Astro.props;
           class="text-sm lg:text-base font-semibold leading-6 text-gray-100 transition duration-300 hover:scale-110 hover:opacity-60"
           >{fromDict("nav.cta")}</a
         >
-        <LanguagePicker />
+        <LanguagePicker client:only="svelte" language={lang} dropdownClasses="px-3 py-1 font-small text-xs"/>
       </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
@@ -169,7 +170,6 @@ const { title, headerText } = Astro.props;
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-800 transition duration-300 hover:scale-110 hover:opacity-60"
                 >{fromDict("nav.cta")}</a
               >
-              <LanguagePicker />
             </div>
           </div>
         </div>

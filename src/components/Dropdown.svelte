@@ -1,22 +1,24 @@
 <script lang="ts">
     import { createListbox } from "svelte-headlessui";
 
-    export let classes = "";
+    export let classes: string;
     export let items: ReturnType<typeof createListbox>;
     export let options: string[];
     export let placeholder: string;
+    export let clickEvent= () => {};
     export let selectEvent: (event: CustomEvent<{ selected: string[] }>) => void;
 </script>
 
-<div class=" relative inline-flex max-h-10 {classes}">
+<div class=" relative inline-flex max-h-10">
     <button
       use:items.button
-      class="inline-flex justify-center w-full px-6 py-2 text-sm font-medium text-gray-100 bg-white/10 border border-transparent rounded-md shadow-sm hover:bg-white/20 focus:outline-none backdrop-filter backdrop-blur-md"
+      class="inline-flex justify-center w-full text-gray-100 bg-white/10 border border-transparent rounded-md shadow-sm hover:bg-white/20 focus:outline-none backdrop-filter backdrop-blur-md {classes}"
+      on:click={clickEvent}
       on:select={selectEvent}
     >
       <span class="text-nowrap text-gray-100">{placeholder}</span>
     </button>
-    {#if $items.expanded}
+    {#if $items.expanded && options.length > 0}
       <!-- TODO: blend scrollbar more into the applied colorscheme -->
       <ul
         use:items.items
@@ -26,7 +28,7 @@
           {@const active = $items.selected.includes(option)}
           <li
             use:items.item={{ value: option }}
-            class="block w-full text-gray-100 text-center cursor-pointer select-none relative py-2 px-4 hover:bg-white/20 my-0 {active
+            class="block w-full text-gray-100 text-left cursor-pointer select-none relative hover:bg-white/20 my-0 pr-0 {classes} {active
               ? 'underline'
               : ''}"
           >

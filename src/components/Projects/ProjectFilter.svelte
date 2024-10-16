@@ -7,7 +7,7 @@
   import CloseIcon from "../Icons/CloseIcon.svelte";
   import { useTranslations } from "../../i18n/utils";
   import Dropdown from "../Dropdown.svelte";
-  export let dropdownClasses = "";
+  export let dropdownClasses: string;
   export let language: Language;
 
   const fromDict = useTranslations(language);

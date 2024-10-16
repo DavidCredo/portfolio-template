@@ -11,6 +11,7 @@ export const ui: Record<Language, Record<string, string>> = {
         'nav.cta': 'Text me!',
         'nav.open': 'Open navigation',
         'nav.close': 'Close navigation',
+        'nav.language.help': 'Choose your language',
 
         'footer.imprint': 'Imprint',
         'footer.privacy': 'Privacy',
@@ -46,6 +47,7 @@ export const ui: Record<Language, Record<string, string>> = {
         'nav.cta': 'Schreib mir!',
         'nav.open': 'Navigation öffnen',
         'nav.close': 'Navigation schließen',
+        'nav.language.help': 'Wähle deine Sprache',
 
         'footer.imprint': 'Impressum',
         'footer.privacy': 'Datenschutz',

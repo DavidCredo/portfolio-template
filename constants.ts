@@ -31,8 +31,8 @@ export enum Language {
 }
 
 export const languages : Record<Language, string> = {
-    [Language.EN]: '🇬🇧 English',
-    [Language.DE]: '🇩🇪 Deutsch',
+    [Language.EN]: '🇬🇧 En',
+    [Language.DE]: '🇩🇪 De',
 };
 
 const categoryColorMap: Record<Category, Color> = {
