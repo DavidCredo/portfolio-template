@@ -30,7 +30,7 @@ const filteredProjects = projects.filter((project) =>
           </p>
         </div>
         <div class="col-span-full inline-flex justify-between w-full">
-          <ProjectFilter client:only="svelte" language={lang} />
+          <ProjectFilter client:only="svelte" language={lang} dropdownClasses=""/>
         </div>
         <ProjectGallery projects={filteredProjects} currentLang={lang} defaultLang={defaultLang} client:only="svelte" />
       </div>

@@ -7,7 +7,7 @@
   import CloseIcon from "../Icons/CloseIcon.svelte";
   import { useTranslations } from "../../i18n/utils";
   import Dropdown from "../Dropdown.svelte";
-  export let classes = "";
+  export let dropdownClasses = "";
   export let language: Language;
 
   const fromDict = useTranslations(language);
@@ -17,6 +17,8 @@
     multi: true,
     selected: $selectedTagsStore,
   });
+
+  const options = availableTags.map((tag) => tag.name);
 
   function handleSelect(event: CustomEvent<{ selected: string[] }>) {
     const selectedTags = event.detail.selected;
@@ -39,4 +41,4 @@
   {/each}
 </div>
 
-<Dropdown classes={classes} items={listBox} options={availableTags} selectEvent={handleSelect} placeholder={fromDict("projects.filter")}/>
+<Dropdown classes={dropdownClasses} items={listBox} options={options} selectEvent={handleSelect} placeholder={fromDict("projects.filter")}/>

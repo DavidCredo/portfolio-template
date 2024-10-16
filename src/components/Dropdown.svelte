@@ -22,15 +22,15 @@
         use:items.items
         class="absolute right-0 max-w-60 z-10 mt-12 w-full bg-slate-900/50 border border-white/20 backdrop-filter backdrop-blur-md rounded-md shadow-lg ring-1 ring-black ring-opacity-5 list-none focus:outline-none max-h-56 overflow-y-auto overflow-x-hidden"
       >
-        {#each options as option, id}
-          {@const active = $items.selected.includes(option.name)}
+        {#each options as option}
+          {@const active = $items.selected.includes(option)}
           <li
-            use:items.item={{ value: option.name }}
+            use:items.item={{ value: option }}
             class="block w-full text-gray-100 text-center cursor-pointer select-none relative py-2 px-4 hover:bg-white/20 my-0 {active
-              ? 'font-bold'
+              ? 'underline'
               : ''}"
           >
-            <span class="block">{option.name}</span>
+            <span class="block">{option}</span>
           </li>
         {/each}
       </ul>
