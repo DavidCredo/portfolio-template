@@ -43,6 +43,7 @@ export const ui: Record<Language, Record<string, string>> = {
         'srcButton.document': 'Load full document',
     },
     [Language.DE]: {
+        'nav.projects': 'Portfolio',
         'nav.about': 'Über mich',
         'nav.cta': 'Schreib mir!',
         'nav.open': 'Navigation öffnen',
@@ -70,6 +71,7 @@ export const ui: Record<Language, Record<string, string>> = {
         'projects.subtitle': 'Eine Auswahl von Projekten, auf die ich besonders stolz bin.',
         'projects.meta': 'Interessantes Portfolio',
         'projects.duration': 'Kapazität',
+        'projects.team': 'Team',
         'projects.skills': 'Fähigkeiten',
         'projects.filter': "Nach Tags filtern",
 
