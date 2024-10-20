@@ -22,7 +22,7 @@
       <!-- TODO: blend scrollbar more into the applied colorscheme -->
       <ul
         use:items.items
-        class="absolute right-0 max-w-60 z-10 mt-12 w-full bg-slate-900/50 border border-white/20 backdrop-filter backdrop-blur-md rounded-md shadow-lg ring-1 ring-black ring-opacity-5 list-none focus:outline-none max-h-56 overflow-y-auto overflow-x-hidden"
+        class="absolute right-0 max-w-60 z-10 mt-12 w-full bg-slate-900/50 border border-white/20 backdrop-filter backdrop-blur-md rounded-md shadow-lg ring-1 ring-black ring-opacity-5 list-none focus:outline-none lg:max-h-96 max-h-80 overflow-y-auto overflow-x-hidden"
       >
         {#each options as option}
           {@const active = $items.selected.includes(option)}
