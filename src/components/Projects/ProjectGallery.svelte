@@ -1,17 +1,20 @@
 <script lang="ts">
   import Pill from "../Pill.svelte";
   import GlassCard from "../GlassCard.svelte";
-  import { availableTags } from "../../../constants";
   import { selectedTagsStore } from "../../stores/selectedTagsStore";
   import { scale } from "svelte/transition";
+  import { getAvailableTags } from "../../helpers.ts";
+  
   export let projects;
   export let currentLang;
   export let defaultLang;
 
+  const availableTags = getAvailableTags(currentLang);
+
   // retain routing consistency while language attributes are included in the project IDs
   projects.map((project) => {
     let pID = project.id.split("/")[1];
-    if (project.id.startsWith(`${defaultLang}/`)){
+    if (project.id.startsWith(`${defaultLang}/`)) {
       project.route = `/projects/${pID}`;
     } else {
       project.route = `/${currentLang}/projects/${pID}`;

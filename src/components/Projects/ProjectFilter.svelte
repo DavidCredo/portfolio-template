@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { availableTags, Language } from "../../../constants.ts";
+  import { Language } from "../../../constants.ts";
   import { selectedTagsStore } from "../../stores/selectedTagsStore";
   import { createListbox } from "svelte-headlessui";
   import Pill from "../Pill.svelte";
@@ -7,17 +7,18 @@
   import CloseIcon from "../Icons/CloseIcon.svelte";
   import { useTranslations } from "../../i18n/utils";
   import Dropdown from "../Dropdown.svelte";
+  import { getAvailableTags } from "../../helpers.ts";
+
   export let dropdownClasses: string;
   export let language: Language;
 
+  const availableTags = getAvailableTags(language);
   const fromDict = useTranslations(language);
-
   const listBox = createListbox({
     label: fromDict("projects.filter"),
     multi: true,
     selected: $selectedTagsStore,
   });
-
   const options = availableTags.map((tag) => tag.name);
 
   function handleSelect(event: CustomEvent<{ selected: string[] }>) {
@@ -41,4 +42,10 @@
   {/each}
 </div>
 
-<Dropdown classes={dropdownClasses} items={listBox} options={options} selectEvent={handleSelect} placeholder={fromDict("projects.filter")}/>
+<Dropdown
+  classes={dropdownClasses}
+  items={listBox}
+  {options}
+  selectEvent={handleSelect}
+  placeholder={fromDict("projects.filter")}
+/>

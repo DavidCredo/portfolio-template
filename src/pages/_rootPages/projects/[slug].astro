@@ -1,25 +1,22 @@
 ---
 import Pill from "../../../components/Pill.svelte";
 import Base from "../../../layouts/Base.astro";
-import { availableTags } from "../../../../constants";
 import GithubIcon from "../../../components/Icons/GithubIcon.svelte";
 import PDFIcon from "../../../components/Icons/PDFIcon.svelte";
 import WebIcon from "../../../components/Icons/WebIcon.svelte";
 import { getEntry } from "astro:content";
 import ProjectImage from "../../../components/Projects/ProjectImage.svelte";
 import IconButton from "../../../components/IconButton.svelte";
-const { slug } = Astro.params;
 import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+import { getAvailableTags } from '../../../helpers.ts';
 
+const { slug } = Astro.params;
 const lang = getLangFromUrl(Astro.url);
 const project = await getEntry("projects", `${lang}/${slug}`);
-
 const fromDict = useTranslations(lang);
-
-const allImages =
-  project?.data?.content?.map((content) => content.graphics).flat() || [];
-
+const allImages = project?.data?.content?.map((content) => content.graphics).flat() || [];
 const { title, tags, longDescription, content, url, linktype } = project?.data || {};
+const availableTags = getAvailableTags(lang);
 ---
 
 <Base title={title}>

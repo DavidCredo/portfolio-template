@@ -1,8 +1,7 @@
 <script lang="ts">
-    import { availableTags, Language, languages } from "../../constants.ts";
+    import { Language, languages } from "../../constants.ts";
     import { availableLanguagesStore } from "../stores/availableLanguagesStore";
     import { useTranslatedPath, useTranslations } from "../i18n/utils.ts";
-    import { defaultLang } from "../i18n/ui.ts";
     import { createListbox } from "svelte-headlessui";
     import Dropdown from "./Dropdown.svelte";
 

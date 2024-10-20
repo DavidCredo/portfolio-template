@@ -1,6 +1,10 @@
-<script>
+<script lang="ts">
   import Pill from "./Pill.svelte";
-  import { availableTags } from "../../constants";
+  import { getAvailableTags } from "../helpers.ts";
+
+  export let language: Language;
+
+  const availableTags = getAvailableTags(language);
 </script>
 
 <div class="flex flex-wrap gap-2">

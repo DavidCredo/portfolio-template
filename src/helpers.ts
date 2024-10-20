@@ -1,4 +1,5 @@
-import { Color } from "../constants";
+import { Color, Category, Language, categoryColorMap } from "../constants";
+import { useTranslations } from "./i18n/utils";
 
 export function getColorProps(color: Color) {
     switch (color) {
@@ -82,4 +83,26 @@ export function getColorProps(color: Color) {
                 iconColor: "stroke-gray-800",
             };
     }
+}
+
+export function getAvailableTags(lang: Language) {
+    const fromDict = useTranslations(lang);
+    return [
+        { name: fromDict('tags.mixedReality'), color: categoryColorMap[Category.Platform] },
+        { name: fromDict('tags.webDevelopment'), color: categoryColorMap[Category.ProgrammingLanguage] },
+        { name: fromDict('tags.interactionDesign'), color: categoryColorMap[Category.Interface] },
+        { name: fromDict('tags.webSockets'), color: categoryColorMap[Category.ServerNetwork] },
+        { name: "Docker", color: categoryColorMap[Category.ServerNetwork] },
+        { name: fromDict('tags.userExperience'), color: categoryColorMap[Category.Interface] },
+        { name: fromDict('tags.frontendDevelopment'), color: categoryColorMap[Category.Interface] },
+        { name: "Swift", color: categoryColorMap[Category.ProgrammingLanguage] },
+        { name: "SwiftUI", color: categoryColorMap[Category.ProgrammingLanguage] },
+        { name: fromDict('tags.augmentedReality'), color: categoryColorMap[Category.Platform] },
+        { name: "Flutter", color: categoryColorMap[Category.ProgrammingLanguage] },
+        { name: fromDict('tags.realTimeDatabase'), color: categoryColorMap[Category.ServerNetwork] },
+        { name: "Unity", color: categoryColorMap[Category.Platform] },
+        { name: "C#", color: categoryColorMap[Category.ProgrammingLanguage] },
+        { name: fromDict('tags.electricalEngineering'), color: categoryColorMap[Category.Engineering] },
+        { name: fromDict('tags.gameDesign'), color: categoryColorMap[Category.Miscellaneous] },
+      ]
 }
