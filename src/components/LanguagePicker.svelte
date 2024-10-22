@@ -30,16 +30,28 @@
     const options = toggleMode ? [] : Object.values(languages);
 
     function handleSelect(event: CustomEvent<{ selected: string }>) {
-        // When coming from the toggle mode, there is no selection safed to the store
+        // When coming from the toggle mode, there is no selection saved to the store
         const selectedValue = Object.values(languages).find(
             (lang) => lang === event.srcElement.innerText,
         );
         const selectedLanguage = Object.keys(languages).find(
             (lang) => languages[lang] === selectedValue,
         );
+
+        if (!selectedLanguage) {
+            console.error("Selected language is undefined: Please try again, or reload the page if the issue persists.");
+            return;
+        }
+
         const translatePath = useTranslatedPath(selectedLanguage);
         const currentPath = location.pathname;
         const cleanedPath = currentPath.replace(`/${language}`, "");
+
+        if (!translatePath) {
+            console.error("Translate path function is undefined: Please try again, or reload the page if the issue persists.");
+            return;
+        }
+
         window.location.href = translatePath(cleanedPath);
     }
 </script>
